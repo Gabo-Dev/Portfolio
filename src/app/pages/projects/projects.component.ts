@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
-import { Project, ProjectCard } from '@shared/project-card/project-card';
+import { Project, ProjectCard } from '@shared/project-card/project-card.component';
 import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-projects',
   imports: [CommonModule, ProjectCard],
-  templateUrl: './projects.html',
-  styleUrl: './projects.scss',
+  templateUrl: './projects.component.html',
+  styleUrl: './projects.component.scss',
 })
 export class Projects {
   projects: Project[] = [

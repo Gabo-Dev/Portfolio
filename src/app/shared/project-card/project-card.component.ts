@@ -14,8 +14,8 @@ export interface Project {
 @Component({
   selector: 'app-project-card',
   imports: [],
-  templateUrl: './project-card.html',
-  styleUrl: './project-card.scss',
+  templateUrl: './project-card.component.html',
+  styleUrl: './project-card.component.scss',
 })
 export class ProjectCard {
   @Input() project!: Project;
