@@ -1,59 +1,53 @@
-# ProyectoPortfolioDigital
+# Gabo-Dev's Personal Portfolio
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.1.
+## Project Overview
 
-## Development server
+This project is a personal portfolio designed to showcase advanced software development skills, with a focus on implementing modern Angular best practices. It demonstrates a commitment to clean, scalable, and maintainable code.
 
-To start a local development server, run:
+This project also serves as the practical coursework for Anthropic's **AI Fluency: Framework Foundations** course ([link](https://anthropic.skilljar.com/ai-fluency-framework-foundations)), reflecting a philosophy of learning through active building and collaboration with advanced AI tools.
 
-```bash
-ng serve
-```
+## Core Development Philosophy
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+My approach to software development is rooted in continuous, deliberate improvement. I engage with challenging projects to learn through experimentation, questioning foundational principles, and researching modern architectures and paradigms like Multi-Codebase Platforms (MCPs) and AI-assisted development, leveraging tools like **open code**.
 
-## Code scaffolding
+## Tech Stack
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+*   Angular
+*   TypeScript
+*   SCSS
+*   pnpm
+*   Neovim
 
-```bash
-ng generate component component-name
-```
+## Workflow: Skill-Driven Development (SDD)
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+This project's development is guided by a "Skill-Driven Development" (SDD) process. Best practices are sourced from official `.md` "Skill" documents within the Angular team's own repository. This knowledge is then integrated into our project's rule base using Engram, ensuring our architecture and coding standards evolve in line with the latest industry benchmarks.
 
-```bash
-ng generate --help
-```
+### Community Resources
 
-## Building
+In the spirit of open source and sharing knowledge, here are the foundational documents that have guided our process:
 
-To build the project run:
+*   [Angular New App Skill](https://github.com/angular/angular/tree/main/skills/dev-skills/angular-new-app)
+*   [Angular Core Best Practices](https://github.com/angular/angular/blob/786ea441e9af325d09a1f201e79f7cbf2b923f9c/packages/core/resources/best-practices.md?plain=1)
 
-```bash
-ng build
-```
+## Getting Started
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+To get a local copy up and running, follow these simple steps.
 
-## Running unit tests
+### Installation & Execution
 
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+1.  Clone the repo:
+    ```sh
+    git clone https://github.com/Gabo-Dev/Portfolio.git
+    ```
+2.  Navigate to the project directory:
+    ```sh
+    cd Portfolio
+    ```
+3.  Install packages:
+    ```sh
+    pnpm install
+    ```
+4.  Run the development server:
+    ```sh
+    pnpm start
+    ```
