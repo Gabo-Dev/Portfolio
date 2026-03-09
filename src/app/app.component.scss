@@ -1,4 +1,8 @@
-header {
-  display: flex;
-  justify-content: center;
+.neumorphic-panel {
+  border-radius: var(--neumorphic-card-radius);
+  background: var(--neumorphic-background);
+  box-shadow: 8px 8px 16px var(--neumorphic-dark-shadow),
+              -8px -8px 16px var(--neumorphic-light-shadow);
+  padding: 20px;
+  margin: 20px;
 }
