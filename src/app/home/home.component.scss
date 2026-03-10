@@ -1,6 +1,7 @@
 :host {
   display: block;
   height: 100%;
+  background-color: var(--neumorphic-background);
 }
 .home-container {
   display: flex;
@@ -12,11 +13,100 @@
   text-align: center;
 }
 .home-title {
-  font-size: 4rem;
-  font-weight: bold;
-  margin: 0 0 0.5rem 0;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 800;
+  margin: 0 0 1rem 0;
+  color: var(--text-primary);
+  font-family: var(--font-family-headings);
 }
 .home-subtitle {
-  font-size: 1.5rem;
-  color: #6c757d;
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  color: var(--text-secondary);
+  max-width: 650px;
+  line-height: 2.2;
+  white-space: pre-line;
+  letter-spacing: 0.3px;
+}
+.hero-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.btn-primary,
+.btn-secondary {
+  padding: 0.875rem 1.75rem;
+  border-radius: var(--neumorphic-card-radius);
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 1rem;
+  font-family: var(--font-family-body);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: none;
+  letter-spacing: 0.5px;
+}
+
+.btn-primary {
+  background: #4a5568;
+  color: white;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+  border: 2px solid rgba(255, 255, 255, 0.6);
+  box-shadow:
+    8px 8px 16px rgba(166, 180, 200, 0.4),
+    -8px -8px 16px rgba(255, 255, 255, 0.9),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.5);
+
+  &:hover {
+    background: #3d4554;
+    transform: translateY(-4px);
+    border-color: rgba(255, 255, 255, 0.8);
+    box-shadow:
+      10px 10px 20px rgba(166, 180, 200, 0.5),
+      -10px -10px 20px rgba(255, 255, 255, 0.9),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.6);
+  }
+
+  &:active {
+    transform: translateY(-2px);
+  }
+}
+
+.btn-secondary {
+  background: var(--neumorphic-background);
+  color: #4a5568;
+  border: 2px solid #4a5568;
+  box-shadow:
+    8px 8px 16px rgba(166, 180, 200, 0.4),
+    -8px -8px 16px rgba(255, 255, 255, 0.9);
+
+  &:hover {
+    background: #4a5568;
+    color: white;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+    transform: translateY(-4px);
+    border-color: rgba(255, 255, 255, 0.6);
+    box-shadow:
+      10px 10px 20px rgba(166, 180, 200, 0.5),
+      -10px -10px 20px rgba(255, 255, 255, 0.9),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.5);
+  }
+
+  &:active {
+    transform: translateY(-1px);
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-actions {
+    flex-direction: column;
+    width: 100%;
+    max-width: 280px;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    width: 100%;
+  }
 }

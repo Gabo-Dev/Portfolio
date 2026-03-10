@@ -1,4 +1,15 @@
 <div class="home-container">
-  <h1 class="home-title">Gabo-Dev</h1>
-  <p class="home-subtitle">Desarrollador Full-Stack & Arquitectura de Software</p>
+  <header class="hero">
+    <h1 class="home-title">{{ headline() }}</h1>
+    <p class="home-subtitle">{{ subheadline() }}</p>
+
+    <div class="hero-actions">
+      <a routerLink="/projects" class="btn-primary">
+        {{ ctaPrimary() }}
+      </a>
+      <a routerLink="/about" class="btn-secondary">
+        {{ ctaSecondary() }}
+      </a>
+    </div>
+  </header>
 </div>
