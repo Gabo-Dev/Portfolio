@@ -1,0 +1,27 @@
+<div class="loader-container">
+  <div class="terminal-loader">
+    <div class="loader-content">
+      <div class="boot-sequence">
+        @for (line of lines(); track $index) {
+          <div class="boot-line">{{ line }}</div>
+        }
+      </div>
+
+      <div class="progress-section">
+        <div class="progress-info">
+          <span>>Loading System:</span>
+          <span>{{ progress() }}%</span>
+        </div>
+
+        <div class="progress-bar-container">
+          <div class="progress-bar" [style.width.%]="progress()"></div>
+        </div>
+      </div>
+
+      <div class="cursor-line">
+        <span class="prompt">$</span>
+        <span class="blinking-cursor">_</span>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,96 @@
+<article class="terminal-window neumorphic-concave">
+  <header class="terminal-bar">
+    <div class="terminal-controls">
+      <span class="terminal-button close" aria-hidden="true"></span>
+      <span class="terminal-button minimize" aria-hidden="true"></span>
+      <span class="terminal-button maximize" aria-hidden="true"></span>
+    </div>
+
+    <h2 class="terminal-title">bash -- {{ project.title }}</h2>
+
+    <nav class="terminal-navigation" aria-label="Navegación de proyectos">
+      <button class="nav-button back" (click)="onCloseClick()" aria-label="Volver a los terminales">
+        Back to Home Terminals
+      </button>
+      <div class="nav-divider"></div>
+      <button
+        class="nav-button prev"
+        (click)="onPreviousProject()"
+        [disabled]="totalProjects() <= 1"
+        aria-label="Previous project"
+      >
+        &lt; Prev
+      </button>
+      <span class="project-count">{{ currentProjectIndex() + 1 }} / {{ totalProjects() }}</span>
+      <button
+        class="nav-button next"
+        (click)="onNextProject()"
+        [disabled]="totalProjects() <= 1"
+        aria-label="Next project"
+      >
+        Next &gt;
+      </button>
+    </nav>
+  </header>
+
+  <section class="terminal-content">
+    <div class="terminal-watermark" aria-hidden="true">
+      <pre>
+   ____   ____
+  / ___| |  _ \
+ | |  _  | | | |
+ | |_| | | |_| |
+  \____| |____/
+   SYSTEM OS
+      </pre>
+    </div>
+    <pre class="terminal-text">
+<span class="prompt-user">gabo@dev</span>:<span class="prompt-dir">~/projects/{{ project.title | lowercase }}</span><span class="prompt-sym">$</span> cat README.md
+
+<span class="highlight-title">{{ project.title }}</span>
+--------------------------------------------------
+
+<span class="section-title">Información del Proyecto:</span>
+Version: {{ project.version || '1.0.0' }}
+Status: <span class="status-deployed">{{ project.status }}</span>
+Deployment Date: {{ project.deploymentDate }}
+
+<span class="section-title">Descripción:</span>
+{{ project.terminalDescription }}
+
+<span class="section-title">Repositorio:</span>
+<div class="repo-section" *ngIf="project.githubUrl">
+  <p class="repo-text">
+    &gt; El código fuente es abierto. Te invito a explorar la arquitectura, revisar los commits o proponer mejoras mediante issues/PRs. Toda colaboración es bienvenida.
+  </p>
+  <a [href]="project.githubUrl" target="_blank" rel="noopener noreferrer" class="github-minimal-link">
+    <img src="https://simpleicons.org/icons/github.svg" alt="GitHub" class="github-icon-min">
+    <span>Visitar Repositorio</span>
+  </a>
+</div>
+<span *ngIf="!project.githubUrl" class="repo-text-private">&gt; [ Repositorio Privado - Código cerrado ]</span>
+
+<span class="section-title">Vista Previa:</span>
+<img *ngIf="project.terminalGifUrl" [src]="project.terminalGifUrl" alt="{{ project.title }} GIF" class="project-gif">
+<span *ngIf="!project.terminalGifUrl" class="no-gif-message">No hay vista previa disponible.</span>
+
+<span class="section-title">Stack Tecnológico:</span>
+<div class="tech-stack-container">
+  @for (tech of project.technologies; track tech.name) {
+    <div class="tech-item">
+      <img [src]="tech.img" [alt]="tech.name" class="tech-icon">
+      <span class="tech-name">{{ tech.name }}</span>
+    </div>
+  }
+</div>
+
+<span class="prompt-user">gabo@dev</span>:<span class="prompt-dir">~/projects/{{ project.title | lowercase }}</span><span class="prompt-sym">$</span> <span class="cursor-blink">_</span>
+    </pre>
+  </section>
+  <footer class="tmux-status-bar">
+    <span class="tmux-left">[0] bash</span>
+    <span class="tmux-right"
+      >"{{ project.title }}" {{ project.version || 'v1.0' }} | Mem: 42% | load: 0.15
+    </span>
+  </footer>
+</article>

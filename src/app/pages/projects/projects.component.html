@@ -1,43 +1,72 @@
 <main class="projects-layout">
-  <header class="projects-header">
-    <h1 class="header-glitch">Mis Proyectos</h1>
-  </header>
-
-  <section class="projects-content">
-    <div class="cards-wrapper">
-      @for (project of projects; track project.id) {
-        <article class="project-card" [class]="project.terminalCardType">
-          <div class="hardware-branding">SYS-{{ project.id }}00</div>
-          <div class="terminal-bezel">
-            <div class="hardware-vents">
-              <span></span><span></span><span></span><span></span>
-            </div>
-            <div class="terminal-header">
-              <div class="terminal-buttons">
-                <span class="btn close"></span>
-                <span class="btn minimize"></span>
-                <span class="btn maximize"></span>
-              </div>
-              <h3 class="terminal-title">bash - {{ project.title }}</h3>
-            </div>
-            <div class="terminal-screen">
-              <div class="screen-content">
-                <div class="boot-sequence">
-                  <p class="sys-msg">Initializing nexus protocol...</p>
-                  <p class="sys-warn">[WARN] Unauthorized access detected</p>
-                  <p class="sys-msg">Bypassing security mainframe...</p>
-                </div>
-                <div class="real-content">
-                  <p class="prompt">> Iniciando {{ project.title }}...</p>
-                  <p class="desc">> {{ project.description }}</p>
-                  <p class="sys-status">> system.ready_ <span class="blink"></span></p>
-                </div>
-              </div>
-              <button class="execute-btn" (click)="onExecuteProject(project.id)">EXECUTE</button>
-            </div>
-          </div>
-        </article>
-      }
+  
+  @if (isLoading()) {
+    <div class="loader-wrapper">
+      <app-terminal-loader />
     </div>
-  </section>
+  } @else {
+    
+
+    @if (!isTerminalVisible() && !isTerminalTransitioning()) {
+      <div class="projects-view" [class.hidden]="!areCardsVisible()">
+        <header class="projects-header">
+          <h1 class="header-glitch">Mis Proyectos</h1>
+        </header>
+
+        <section class="projects-content">
+          <div class="cards-wrapper">
+            @for (project of projects; track project.id) {
+              <article class="project-card" [class]="project.terminalCardType">
+                <div class="hardware-branding">SYS-{{ project.id }}00</div>
+                <div class="terminal-bezel">
+                  <div class="hardware-vents">
+                    <span></span><span></span><span></span><span></span>
+                  </div>
+                  <div class="terminal-header">
+                    <div class="terminal-buttons">
+                      <span class="btn close"></span>
+                      <span class="btn minimize"></span>
+                      <span class="btn maximize"></span>
+                    </div>
+                    <h3 class="terminal-title">bash - {{ project.title }}</h3>
+                  </div>
+                  <div class="terminal-screen">
+                    <div class="screen-content">
+                      <div class="boot-sequence">
+                        <p class="sys-msg">Initializing nexus protocol...</p>
+                        <p class="sys-warn">[WARN] Unauthorized access detected</p>
+                        <p class="sys-msg">Bypassing security mainframe...</p>
+                      </div>
+                      <div class="real-content">
+                        <p class="prompt">> Iniciando {{ project.title }}...</p>
+                        <p class="desc">> {{ project.description }}</p>
+                        <p class="sys-status">> system.ready_ <span class="blink"></span></p>
+                      </div>
+                    </div>
+                    <button class="execute-btn" (click)="onExecuteProject(project.id)">EXECUTE</button>
+                  </div>
+                </div>
+              </article>
+            }
+          </div>
+        </section>
+      </div>
+    }
+
+
+    <section class="terminal-display-section"
+      [class.visible]="isTerminalVisible()"
+      [class.transitioning]="isTerminalTransitioning()">
+      
+      @if (isTerminalVisible() && selectedProject()) {
+        <app-project-terminal-display
+          [project]="selectedProject()!"
+          [allProjects]="projects"
+          (closeTerminal)="onCloseTerminal()"
+          (navigateProject)="onExecuteProject($event)"
+        />
+      }
+    </section>
+
+  }
 </main>

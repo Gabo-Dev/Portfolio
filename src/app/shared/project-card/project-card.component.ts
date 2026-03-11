@@ -1,15 +1,5 @@
 import { Component, Input } from '@angular/core';
-
-export interface Tech {
-  name: string;
-}
-
-export interface Project {
-  id: number;
-  title: string;
-  description: string;
-  technologies: Tech[];
-}
+import { Project } from '@core/models/project.model';
 
 @Component({
   selector: 'app-project-card',
