@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, signal, computed } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { PORTFOLIO_DATA } from '@core/constants/portfolio-data';
 
@@ -11,6 +11,7 @@ import { PORTFOLIO_DATA } from '@core/constants/portfolio-data';
 export class HomeComponent {
   public readonly headline = signal(PORTFOLIO_DATA.home.headline);
   public readonly subheadline = signal(PORTFOLIO_DATA.home.subheadline);
+  public readonly subheadlineParts = computed(() => this.subheadline().split('\n'));
   public readonly ctaPrimary = signal(PORTFOLIO_DATA.home.ctaPrimary);
   public readonly ctaSecondary = signal(PORTFOLIO_DATA.home.ctaSecondary);
 }

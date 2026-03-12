@@ -1,11 +1,22 @@
 <header class="main-header">
-  <nav class="main-nav">
-    <a class="logo" routerLink="/">Gabo-Dev</a>
+  <a class="logo" routerLink="/">Gabo-Dev</a>
+
+  <button
+    class="hamburger-btn"
+    (click)="toggleMenu()"
+    [attr.aria-expanded]="isMenuOpen()"
+    aria-label="Toggle navigation"
+  >
+    <span class="bar"></span>
+    <span class="bar"></span>
+    <span class="bar"></span>
+  </button>
+  <nav class="main-nav" [class.menu-open]="isMenuOpen()">
     <ul class="nav-links">
-      <li><a routerLink="/">Inicio</a></li>
-      <li><a routerLink="/about">Sobre Mí</a></li>
-      <li><a routerLink="/projects">Proyectos</a></li>
-      <li><a routerLink="/contact">Contacto</a></li>
+      <li><a routerLink="/" (click)="isMenuOpen.set(false)">Inicio</a></li>
+      <li><a routerLink="/about" (click)="isMenuOpen.set(false)">Sobre Mí</a></li>
+      <li><a routerLink="/projects" (click)="isMenuOpen.set(false)">Proyectos</a></li>
+      <li><a routerLink="/contact" (click)="isMenuOpen.set(false)">Contacto</a></li>
     </ul>
   </nav>
 </header>

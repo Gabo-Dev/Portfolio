@@ -58,20 +58,41 @@ Deployment Date: {{ project.deploymentDate }}
 <span class="section-title">Descripción:</span>
 {{ project.terminalDescription }}
 
-<span class="section-title">Repositorio:</span>
-<div class="repo-section" *ngIf="project.githubUrl">
+<span class="section-title">Enlaces:</span>
+<div class="repo-section">
   <p class="repo-text">
-    &gt; El código fuente es abierto. Te invito a explorar la arquitectura, revisar los commits o proponer mejoras mediante issues/PRs. Toda colaboración es bienvenida.
+    &gt; El código fuente es abierto. Te invito a explorar la arquitectura, revisar los commits o proponer mejoras mediante issues/PRs.
   </p>
-  <a [href]="project.githubUrl" target="_blank" rel="noopener noreferrer" class="github-minimal-link">
-    <img src="https://simpleicons.org/icons/github.svg" alt="GitHub" class="github-icon-min">
-    <span>Visitar Repositorio</span>
-  </a>
+  <div class="links-container" style="display: flex; gap: 1rem; margin-top: 1rem;">
+    <a *ngIf="project.githubUrl" [href]="project.githubUrl" target="_blank" rel="noopener noreferrer" class="github-minimal-link">
+      <img src="https://simpleicons.org/icons/github.svg" alt="GitHub" class="github-icon-min">
+      <span>Visitar Repositorio</span>
+    </a>
+    <span *ngIf="!project.githubUrl" class="repo-text-private">&gt; [ Repositorio Privado ]</span>
+
+    <a *ngIf="project.demoUrl" [href]="project.demoUrl" target="_blank" rel="noopener noreferrer" class="github-minimal-link demo-link" style="border-color: rgba(122, 162, 247, 0.5); background-color: rgba(122, 162, 247, 0.1); color: #7aa2f7;">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 8px;">
+        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+        <polyline points="15 3 21 3 21 9"></polyline>
+        <line x1="10" y1="14" x2="21" y2="3"></line>
+      </svg>
+      <span>Live Demo</span>
+    </a>
+  </div>
 </div>
-<span *ngIf="!project.githubUrl" class="repo-text-private">&gt; [ Repositorio Privado - Código cerrado ]</span>
 
 <span class="section-title">Vista Previa:</span>
-<img *ngIf="project.terminalGifUrl" [src]="project.terminalGifUrl" alt="{{ project.title }} GIF" class="project-gif">
+<video 
+  *ngIf="project.terminalGifUrl" 
+  [src]="project.terminalGifUrl" 
+  class="project-gif" 
+  autoplay 
+  loop 
+  [muted]="true" 
+  playsinline
+  preload="none"
+  aria-label="Video de demostración de la interfaz">
+</video>
 <span *ngIf="!project.terminalGifUrl" class="no-gif-message">No hay vista previa disponible.</span>
 
 <span class="section-title">Stack Tecnológico:</span>

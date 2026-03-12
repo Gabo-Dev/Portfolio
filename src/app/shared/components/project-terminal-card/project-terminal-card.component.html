@@ -1,0 +1,25 @@
+<div class="terminal-card" [ngClass]="[terminalCardType, terminalCardColor]">
+  <div class="terminal-bezel">
+    <div class="terminal-header">
+      <span class="terminal-title">{{ project.title }}</span>
+      <div class="terminal-buttons">
+        <span class="terminal-button close" aria-hidden="true"></span>
+        <span class="terminal-button minimize" aria-hidden="true"></span>
+        <span class="terminal-button maximize" aria-hidden="true"></span>
+      </div>
+    </div>
+    <div class="terminal-screen">
+      <pre>
+        <span class="prompt">$</span> <span class="command">cd projects/{{ project.id }}</span>
+        <span class="output">Accessing project directory...</span>
+        <span class="prompt">$</span> <span class="command">run {{ project.title.toLowerCase().replace(/ /g, '-') }}.sh</span>
+        <span class="output">Loading {{ project.title }}...</span>
+        <br>
+        <span class="click-prompt">Click 'EXECUTE' to launch project.</span>
+      </pre>
+      <div class="terminal-actions">
+        <button class="neumorphic-button" (click)="onExecute()">EXECUTE</button>
+      </div>
+    </div>
+  </div>
+</div>

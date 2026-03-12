@@ -3,21 +3,14 @@
   width: 100%;
   background-color: var(--neumorphic-background);
   color: var(--text-secondary);
-  padding: 2rem var(--global-padding-desktop);
+  padding: 2rem clamp(10px, 2vw, var(--global-padding-desktop));
   text-align: center;
-  font-size: 0.9rem;
+  font-size: clamp(0.7rem, 2vw, 0.9rem);
   box-shadow: 8px 8px 16px var(--neumorphic-dark-shadow),
               -8px -8px 16px var(--neumorphic-light-shadow);
   border-radius: var(--neumorphic-card-radius);
-  margin-top: 20px;
-  font-family: var(--font-family-body);
-  box-sizing: border-box;
-
-  @media (max-width: 768px) {
-    padding: 2rem var(--global-padding-tablet);
-  }
-
-  @media (max-width: 480px) {
-    padding: 2rem var(--global-padding-mobile);
-  }
+  margin-top: clamp(20px, 3vw, 40px);
+}
+p {
+  margin: 0;
 }

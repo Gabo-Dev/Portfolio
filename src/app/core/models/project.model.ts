@@ -17,4 +17,5 @@ export interface Project {
   status: 'DEPLOYED' | 'IN PROGRESS';
   deploymentDate: string;
   githubUrl?: string;
+  demoUrl?: string;
 }

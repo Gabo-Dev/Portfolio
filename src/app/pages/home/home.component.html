@@ -1,7 +1,13 @@
 <main class="home-container">
   <header class="hero">
     <h1 class="home-title">{{ headline() }}</h1>
-    <p class="home-subtitle">{{ subheadline() }}</p>
+    <div class="subtitle-wrapper">
+      <p class="home-subtitle" aria-live="polite">
+        @for (part of subheadlineParts(); track part; let i = $index) {
+          <span class="subtitle-part part-{{ i }}">{{ part }}</span>
+        }
+      </p>
+    </div>
 
     <div class="hero-actions">
       <a routerLink="/projects" class="btn-primary">

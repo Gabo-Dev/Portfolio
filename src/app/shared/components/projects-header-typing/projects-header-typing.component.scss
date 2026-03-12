@@ -1,0 +1,54 @@
+@use '../../styles/variables' as theme;
+
+.terminal-header {
+  color: var(--text-primary);
+  font-family: 'Cascadia Code PL', 'Fira Code', monospace;
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  margin: 0;
+  padding: 1.5rem 2rem;
+  border-radius: var(--neumorphic-card-radius);
+  background: var(--neumorphic-background);
+  box-shadow: 8px 8px 16px var(--neumorphic-dark-shadow),
+              -8px -8px 16px var(--neumorphic-light-shadow);
+  display: inline-block;
+  position: relative;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.cursor {
+  display: inline-block;
+  background-color: var(--primary-accent);
+  width: 0.75em;
+  height: 1em;
+  margin-left: 0.1em;
+  vertical-align: middle;
+  animation: blink-caret 0.75s step-end infinite;
+
+  &.hidden {
+    opacity: 0;
+  }
+}
+
+@keyframes blink-caret {
+  from, to { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+@media (max-width: 768px) {
+  .terminal-header {
+    font-size: 1.8rem;
+    padding: 1rem 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .terminal-header {
+    font-size: 1.4rem;
+    padding: 0.8rem 1rem;
+  }
+}
