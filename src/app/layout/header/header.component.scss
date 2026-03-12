@@ -1,10 +1,14 @@
 :host {
   display: block;
   width: 100%;
+  flex-shrink: 0;
   position: relative;
   z-index: 1000;
-  margin-bottom: 20px;
-  margin-top: clamp(10px, 3vw, 25px);
+  margin: 0;
+
+  @media (max-width: 900px) {
+    margin-top: clamp(10px, 3vw, 25px);
+  }
 }
 
 .main-header {
@@ -14,8 +18,9 @@
   flex-wrap: wrap;
   background-color: var(--neumorphic-background);
   padding: clamp(15px, 2.5vw, 25px) clamp(20px, 6vw, var(--global-padding-desktop));
-  box-shadow: 10px 10px 20px var(--neumorphic-dark-shadow),
-              -10px -10px 20px var(--neumorphic-light-shadow);
+  box-shadow:
+    10px 10px 20px var(--neumorphic-dark-shadow),
+    -10px -10px 20px var(--neumorphic-light-shadow);
   border-radius: var(--neumorphic-card-radius);
   max-width: var(--content-max-width);
   margin: 0 auto;
@@ -39,7 +44,7 @@
   cursor: pointer;
   padding: 5px;
   z-index: 1001;
-  
+
   .bar {
     width: 25px;
     height: 3px;
@@ -97,7 +102,7 @@
     box-shadow: none;
     padding: 0;
     width: auto;
-    
+
     .nav-links {
       flex-direction: row;
     }

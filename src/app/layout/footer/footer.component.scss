@@ -1,15 +1,21 @@
 :host {
   display: block;
   width: 100%;
+  flex-shrink: 0;
   background-color: var(--neumorphic-background);
   color: var(--text-secondary);
-  padding: 2rem clamp(10px, 2vw, var(--global-padding-desktop));
+  padding: 0.75rem clamp(10px, 2vw, var(--global-padding-desktop));
   text-align: center;
   font-size: clamp(0.7rem, 2vw, 0.9rem);
-  box-shadow: 8px 8px 16px var(--neumorphic-dark-shadow),
-              -8px -8px 16px var(--neumorphic-light-shadow);
+  box-shadow:
+    8px 8px 16px var(--neumorphic-dark-shadow),
+    -8px -8px 16px var(--neumorphic-light-shadow);
   border-radius: var(--neumorphic-card-radius);
-  margin-top: clamp(20px, 3vw, 40px);
+  margin-top: 0;
+  @media (max-width: 900px) {
+    padding: 2rem clamp(10px, 2vw, var(--global-padding-desktop));
+    margin-top: 0;
+  }
 }
 p {
   margin: 0;
