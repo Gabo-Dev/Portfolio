@@ -1,21 +1,22 @@
-import { Component, inject, OnInit, signal, computed } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, inject, OnInit, signal, computed, ChangeDetectionStrategy } from '@angular/core';
 import { Project } from '@core/models/project.model';
 import { ProjectService } from '@core/services/project.service';
 import { TerminalLoaderComponent } from '@shared/components/terminal-loader/terminal-loader.component';
 import { ProjectTerminalDisplayComponent } from '@shared/components/project-terminal-display/project-terminal-display.component';
+import { ProjectTerminalCardComponent } from '@shared/components/project-terminal-card/project-terminal-card.component';
 
 @Component({
   selector: 'app-projects',
   standalone: true,
-  imports: [CommonModule, TerminalLoaderComponent, ProjectTerminalDisplayComponent],
+  imports: [TerminalLoaderComponent, ProjectTerminalDisplayComponent, ProjectTerminalCardComponent],
   templateUrl: './projects.component.html',
   styleUrl: './projects.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProjectsComponent implements OnInit {
   private projectService = inject(ProjectService);
   
-  public projects: Project[] = [];
+  public projects = signal<Project[]>([]);
   public areCardsVisible = signal<boolean>(true); 
   public isLoading = signal<boolean>(false);
   public isTerminalVisible = signal<boolean>(false);
@@ -23,11 +24,11 @@ export class ProjectsComponent implements OnInit {
   public activeProjectId = signal<number | null>(null);
   
   public selectedProject = computed(() => 
-    this.projects.find(p => p.id === this.activeProjectId())
+    this.projects().find(p => p.id === this.activeProjectId())
   );
 
   ngOnInit(): void {
-    this.projects = this.projectService.getProjects();
+    this.projects.set(this.projectService.projects());
   }
 
   onExecuteProject(id: number): void {

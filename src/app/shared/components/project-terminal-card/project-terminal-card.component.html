@@ -1,25 +1,48 @@
-<div class="terminal-card" [ngClass]="[terminalCardType, terminalCardColor]">
+<article
+  class="project-card"
+  [class]="project().terminalCardType"
+  [attr.aria-labelledby]="'project-title-' + project().id"
+>
+  <div class="hardware-branding" aria-hidden="true">SYS-{{ project().id }}00</div>
+
   <div class="terminal-bezel">
-    <div class="terminal-header">
-      <span class="terminal-title">{{ project.title }}</span>
-      <div class="terminal-buttons">
-        <span class="terminal-button close" aria-hidden="true"></span>
-        <span class="terminal-button minimize" aria-hidden="true"></span>
-        <span class="terminal-button maximize" aria-hidden="true"></span>
+    <header class="terminal-header">
+      <div class="hardware-vents" aria-hidden="true">
+        <span></span><span></span><span></span><span></span>
       </div>
-    </div>
-    <div class="terminal-screen">
-      <pre>
-        <span class="prompt">$</span> <span class="command">cd projects/{{ project.id }}</span>
-        <span class="output">Accessing project directory...</span>
-        <span class="prompt">$</span> <span class="command">run {{ project.title.toLowerCase().replace(/ /g, '-') }}.sh</span>
-        <span class="output">Loading {{ project.title }}...</span>
-        <br>
-        <span class="click-prompt">Click 'EXECUTE' to launch project.</span>
-      </pre>
-      <div class="terminal-actions">
-        <button class="neumorphic-button" (click)="onExecute()">EXECUTE</button>
+      <div class="terminal-buttons" aria-hidden="true">
+        <span class="btn close"></span>
+        <span class="btn minimize"></span>
+        <span class="btn maximize"></span>
       </div>
-    </div>
+      <h3 class="terminal-title" [id]="'project-title-' + project().id">
+        bash - {{ project().title }}
+      </h3>
+    </header>
+
+    <section class="terminal-screen" [attr.aria-label]="'Detalles del proyecto ' + project().title">
+      <div class="boot-sequence" aria-hidden="true">
+        <p class="sys-msg">Initializing nexus protocol...</p>
+        <p class="sys-warn">[WARN] Unauthorized access detected</p>
+        <p class="sys-msg">Bypassing security mainframe...</p>
+      </div>
+
+      <div class="real-content">
+        <p class="prompt" aria-hidden="true">Iniciando {{ project().title }}...</p>
+        <p class="desc">
+          <span class="sr-only">Descripción técnica: </span>
+          {{ project().terminalDescription }}
+        </p>
+        <p class="sys-status" aria-hidden="true">system.ready_ <span class="blink"></span></p>
+      </div>
+
+      <button
+        class="execute-btn"
+        (click)="onExecute()"
+        [attr.aria-label]="'Ejecutar proyecto: ' + project().title"
+      >
+        EXECUTE
+      </button>
+    </section>
   </div>
-</div>
+</article>

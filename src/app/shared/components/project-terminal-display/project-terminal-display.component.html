@@ -6,7 +6,7 @@
       <span class="terminal-button maximize" aria-hidden="true"></span>
     </div>
 
-    <h2 class="terminal-title">bash -- {{ project.title }}</h2>
+    <h2 class="terminal-title">bash -- {{ project().title }}</h2>
 
     <nav class="terminal-navigation" aria-label="Navegación de proyectos">
       <button class="nav-button back" (click)="onCloseClick()" aria-label="Volver a los terminales">
@@ -38,25 +38,25 @@
       <pre>
    ____   ____
   / ___| |  _ \
- | |  _  | | | |
- | |_| | | |_| |
-  \____| |____/
-   SYSTEM OS
+  | |  _  | | | |
+  | |_| | | |_| |
+   \____| |____/
+    SYSTEM OS
       </pre>
     </div>
     <pre class="terminal-text">
-<span class="prompt-user">gabo@dev</span>:<span class="prompt-dir">~/projects/{{ project.title | lowercase }}</span><span class="prompt-sym">$</span> cat README.md
+<span class="prompt-user">gabo@dev</span>:<span class="prompt-dir">~/projects/{{ project().title | lowercase }}</span><span class="prompt-sym">$</span> cat README.md
 
-<span class="highlight-title">{{ project.title }}</span>
+<span class="highlight-title">{{ project().title }}</span>
 --------------------------------------------------
 
 <span class="section-title">Información del Proyecto:</span>
-Version: {{ project.version || '1.0.0' }}
-Status: <span class="status-deployed">{{ project.status }}</span>
-Deployment Date: {{ project.deploymentDate }}
+Version: {{ project().version || '1.0.0' }}
+Status: <span class="status-deployed">{{ project().status }}</span>
+Deployment Date: {{ project().deploymentDate }}
 
 <span class="section-title">Descripción:</span>
-{{ project.terminalDescription }}
+{{ project().terminalDescription }}
 
 <span class="section-title">Enlaces:</span>
 <div class="repo-section">
@@ -64,40 +64,47 @@ Deployment Date: {{ project.deploymentDate }}
     &gt; El código fuente es abierto. Te invito a explorar la arquitectura, revisar los commits o proponer mejoras mediante issues/PRs.
   </p>
   <div class="links-container" style="display: flex; gap: 1rem; margin-top: 1rem;">
-    <a *ngIf="project.githubUrl" [href]="project.githubUrl" target="_blank" rel="noopener noreferrer" class="github-minimal-link">
-      <img src="https://simpleicons.org/icons/github.svg" alt="GitHub" class="github-icon-min">
-      <span>Visitar Repositorio</span>
-    </a>
-    <span *ngIf="!project.githubUrl" class="repo-text-private">&gt; [ Repositorio Privado ]</span>
+    @if (project().githubUrl) {
+      <a [href]="project().githubUrl" target="_blank" rel="noopener noreferrer" class="github-minimal-link">
+        <img src="https://simpleicons.org/icons/github.svg" alt="GitHub" class="github-icon-min">
+        <span>Visitar Repositorio</span>
+      </a>
+    } @else {
+      <span class="repo-text-private">&gt; [ Repositorio Privado ]</span>
+    }
 
-    <a *ngIf="project.demoUrl" [href]="project.demoUrl" target="_blank" rel="noopener noreferrer" class="github-minimal-link demo-link" style="border-color: rgba(122, 162, 247, 0.5); background-color: rgba(122, 162, 247, 0.1); color: #7aa2f7;">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 8px;">
-        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-        <polyline points="15 3 21 3 21 9"></polyline>
-        <line x1="10" y1="14" x2="21" y2="3"></line>
-      </svg>
-      <span>Live Demo</span>
-    </a>
+    @if (project().demoUrl) {
+      <a [href]="project().demoUrl" target="_blank" rel="noopener noreferrer" class="github-minimal-link demo-link" style="border-color: rgba(122, 162, 247, 0.5); background-color: rgba(122, 162, 247, 0.1); color: #7aa2f7;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 8px;">
+          <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+          <polyline points="15 3 21 3 21 9"></polyline>
+          <line x1="10" y1="14" x2="21" y2="3"></line>
+        </svg>
+        <span>Live Demo</span>
+      </a>
+    }
   </div>
 </div>
 
 <span class="section-title">Vista Previa:</span>
-<video 
-  *ngIf="project.terminalGifUrl" 
-  [src]="project.terminalGifUrl" 
-  class="project-gif" 
-  autoplay 
-  loop 
-  [muted]="true" 
-  playsinline
-  preload="none"
-  aria-label="Video de demostración de la interfaz">
-</video>
-<span *ngIf="!project.terminalGifUrl" class="no-gif-message">No hay vista previa disponible.</span>
+@if (project().terminalGifUrl) {
+  <video 
+    [src]="project().terminalGifUrl" 
+    class="project-gif" 
+    autoplay 
+    loop 
+    [muted]="true" 
+    playsinline
+    preload="none"
+    aria-label="Video de demostración de la interfaz">
+  </video>
+} @else {
+  <span class="no-gif-message">No hay vista previa disponible.</span>
+}
 
 <span class="section-title">Stack Tecnológico:</span>
 <div class="tech-stack-container">
-  @for (tech of project.technologies; track tech.name) {
+  @for (tech of project().technologies; track tech.name) {
     <div class="tech-item">
       <img [src]="tech.img" [alt]="tech.name" class="tech-icon">
       <span class="tech-name">{{ tech.name }}</span>
@@ -105,13 +112,14 @@ Deployment Date: {{ project.deploymentDate }}
   }
 </div>
 
-<span class="prompt-user">gabo@dev</span>:<span class="prompt-dir">~/projects/{{ project.title | lowercase }}</span><span class="prompt-sym">$</span> <span class="cursor-blink">_</span>
+<span class="prompt-user">gabo@dev</span>:<span class="prompt-dir">~/projects/{{ project().title | lowercase }}</span><span class="prompt-sym">$</span> <span class="cursor-blink">_</span>
     </pre>
   </section>
   <footer class="tmux-status-bar">
     <span class="tmux-left">[0] bash</span>
     <span class="tmux-right"
-      >"{{ project.title }}" {{ project.version || 'v1.0' }} | Mem: 42% | load: 0.15
+      >"{{ project().title }}" {{ project().version || 'v1.0' }} | Mem: 42% | load: 0.15
     </span>
   </footer>
 </article>
+

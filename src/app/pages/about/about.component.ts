@@ -3,7 +3,7 @@ import {
   ChangeDetectionStrategy,
   signal,
   computed,
-  Inject,
+  inject,
   OnDestroy,
   OnInit,
   Renderer2,
@@ -22,6 +22,9 @@ import { NgOptimizedImage } from '@angular/common';
   },
 })
 export class AboutComponent implements OnInit, OnDestroy {
+  private readonly document = inject(DOCUMENT);
+  private readonly renderer = inject(Renderer2);
+
   readonly developerName = signal('Gabo');
   readonly experienceYears = signal(3);
   readonly activeTab = signal<'background' | 'experience'>('experience');
@@ -29,11 +32,6 @@ export class AboutComponent implements OnInit, OnDestroy {
   readonly dynamicTitle = computed(
     () => `Sobre ${this.developerName()} - ${this.experienceYears()} Años de Experiencia`,
   );
-
-  constructor(
-    @Inject(DOCUMENT) private document: Document,
-    private renderer: Renderer2,
-  ) {}
 
   ngOnInit(): void {
     this.renderer.addClass(this.document.body, 'global-scroll');

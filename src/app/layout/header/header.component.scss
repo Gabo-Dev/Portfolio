@@ -18,9 +18,7 @@
   flex-wrap: wrap;
   background-color: var(--neumorphic-background);
   padding: clamp(15px, 2.5vw, 25px) clamp(20px, 6vw, var(--global-padding-desktop));
-  box-shadow:
-    10px 10px 20px var(--neumorphic-dark-shadow),
-    -10px -10px 20px var(--neumorphic-light-shadow);
+  box-shadow: var(--neumorphic-shadow-convex);
   border-radius: var(--neumorphic-card-radius);
   max-width: var(--content-max-width);
   margin: 0 auto;
@@ -66,7 +64,7 @@
   width: 100%;
   background-color: var(--neumorphic-background);
   padding: 1rem 0;
-  box-shadow: 8px 8px 16px var(--neumorphic-dark-shadow);
+  box-shadow: var(--neumorphic-shadow-convex-sm);
   border-radius: 0 0 var(--neumorphic-card-radius) var(--neumorphic-card-radius);
 
   &.menu-open {

@@ -11,6 +11,19 @@
   --gold-accent: #ffd700;
   --wood-color: #d4a574;
 
+  --neumorphic-shadow-convex: var(--neumorphic-dark-shadow) 5px 5px 10px, var(--neumorphic-light-shadow) -5px -5px 10px;
+  --neumorphic-shadow-convex-hover: var(--neumorphic-dark-shadow) 8px 8px 15px, var(--neumorphic-light-shadow) -8px -8px 15px;
+  --neumorphic-shadow-convex-btn: var(--neumorphic-dark-shadow) 4px 4px 8px, var(--neumorphic-light-shadow) -4px -4px 8px;
+  --neumorphic-shadow-concave: var(--neumorphic-light-shadow) 5px 5px 10px inset, var(--neumorphic-dark-shadow) -5px -5px 10px inset;
+  --neumorphic-shadow-convex-sm: var(--neumorphic-dark-shadow) 2px 2px 5px, var(--neumorphic-light-shadow) -2px -2px 5px;
+  --neumorphic-shadow-concave-sm: var(--neumorphic-light-shadow) 2px 2px 5px inset, var(--neumorphic-dark-shadow) -2px -2px 5px inset;
+  --neumorphic-shadow-concave-sm-pressed: var(--neumorphic-light-shadow) 3px 3px 6px inset, var(--neumorphic-dark-shadow) -3px -3px 6px inset;
+  --neumorphic-shadow-concave-subtle: var(--neumorphic-light-shadow) 1px 1px 3px inset, var(--neumorphic-dark-shadow) -1px -1px 3px inset;
+
+  --neumorphic-animation-duration: 0.8s;
+  --text-color-light: #f0f0f0;
+  --dark-bg: #1a1a1a;
+
   --font-family-body: 'Roboto Mono', monospace;
   --font-family-headings: 'Noto Serif JP', serif;
 

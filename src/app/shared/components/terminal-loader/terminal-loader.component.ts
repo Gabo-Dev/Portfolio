@@ -1,12 +1,12 @@
-import { Component, OnInit, signal } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, OnInit, signal, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
   selector: 'app-terminal-loader',
   standalone: true,
-  imports: [CommonModule],
+  imports: [],
   templateUrl: './terminal-loader.component.html',
   styleUrl: './terminal-loader.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TerminalLoaderComponent implements OnInit {
   public lines = signal<string[]>([]);

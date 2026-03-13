@@ -1,51 +1,89 @@
 :host {
   display: block;
-  padding: 2rem;
+  padding: clamp(1rem, 5vw, 2rem);
+  background-color: var(--neumorphic-background);
+  min-height: 100%;
 }
+
 .contact-container {
   max-width: 800px;
-  margin: 2rem auto;
-  padding: 2rem;
-  background-color: #2d3748;
-  border-radius: 8px;
+  margin: 0 auto;
+  padding: clamp(1.5rem, 4vw, 3rem);
+  background-color: var(--neumorphic-background);
+  border-radius: var(--neumorphic-card-radius);
+  box-shadow: var(--neumorphic-shadow-convex);
 }
+
 .contact-header {
   text-align: center;
-  margin-bottom: 2rem;
-  border-bottom: 1px solid #4a5568;
+  margin-bottom: 2.5rem;
   padding-bottom: 1.5rem;
+  border-bottom: 2px solid var(--neumorphic-dark-shadow);
+
   h1 {
-    font-size: 2.5rem;
+    font-size: clamp(2rem, 5vw, 3rem);
     margin-bottom: 0.5rem;
+    font-family: var(--font-family-headings);
+    color: var(--text-primary);
   }
+
   p {
     font-size: 1.1rem;
-    color: #a0aec0;
+    color: var(--text-secondary);
+    font-family: var(--font-family-body);
   }
 }
+
 .contact-list {
   list-style: none;
   padding: 0;
   margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
 }
+
 .contact-item {
   display: flex;
-  align-items: center;
-  font-size: 1.2rem;
-  padding: 1rem 0;
-  &:not(:last-child) {
-    border-bottom: 1px solid #4a5568;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1.5rem;
+  background-color: var(--neumorphic-background);
+  border-radius: var(--neumorphic-card-radius);
+  box-shadow: var(--neumorphic-shadow-convex-sm);
+  transition: all 0.3s ease;
+
+  &:hover {
+    box-shadow: var(--neumorphic-shadow-convex);
+    transform: translateY(-2px);
+  }
+
+  @media (min-width: 600px) {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
   }
 }
+
 .contact-label {
   font-weight: bold;
-  min-width: 120px;
+  font-family: var(--font-family-body);
+  color: var(--text-primary);
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
+
 .contact-link {
-  color: #63b3ed;
+  color: var(--primary-accent);
   text-decoration: none;
-  transition: text-decoration 0.2s ease-in-out;
+  font-family: var(--font-family-body);
+  font-weight: 600;
+  transition: all 0.2s ease-in-out;
+  word-break: break-all;
+
   &:hover {
-    text-decoration: underline;
+    color: var(--text-primary);
+    text-shadow: 0 0 1px var(--primary-accent);
   }
 }
