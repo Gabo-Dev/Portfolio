@@ -1,36 +1,232 @@
-<main class="about-layout">
-  <article class="about-card neumorphic-panel">
-    
-    <figure class="profile-figure">
-      <div class="image-bezel">
-        <img 
-          src="https://res.cloudinary.com/da1lxmeng/image/upload/f_auto,q_auto/v1773229104/fotoPerfil_dryi8z.png" 
-          alt="Retrato profesional de Gabo" 
-          class="profile-img"
-          loading="lazy"
-          decoding="async"
+<main class="about-container" aria-labelledby="about-heading">
+  <section class="content-grid" aria-label="Presentación del desarrollador">
+    <div class="main-column">
+      <article class="profile-card" aria-label="Perfil de Jonathan Orna">
+        <figure class="profile-photo-wrapper">
+          <img
+            ngSrc="v1773229104/fotoPerfil_dryi8z.png"
+            alt="Retrato de Jonathan Gabriel Orna Ponce"
+            width="220"
+            height="220"
+            priority
+            class="profile-photo"
+          />
+        </figure>
+        <div class="profile-info">
+          <h1 id="about-heading" class="profile-name">Jonathan Orna Ponce</h1>
+          
+          <div class="tech-stack-section">
+            <h2 class="section-title">Stack Tecnológico</h2>
+            <ul class="skills-chips" role="list" aria-label="Tecnologías principales">
+              <li class="chip">JavaScript</li>
+              <li class="chip">TypeScript</li>
+              <li class="chip">React</li>
+              <li class="chip">Angular</li>
+              <li class="chip">Electron</li>
+              <li class="chip">SQL</li>
+              <li class="chip">Java</li>
+              <li class="chip">Supabase</li>
+            </ul>
+          </div>
+
+          <div class="tech-skills-section">
+            <h2 class="section-title">Habilidades Técnicas</h2>
+            <ul class="skills-chips" role="list" aria-label="Habilidades técnicas">
+              <li class="chip">Investigación</li>
+              <li class="chip">Integración de IA</li>
+              <li class="chip">Arquitectura</li>
+              <li class="chip">Testing</li>
+              <li class="chip">Optimización</li>
+              <li class="chip">DevOps</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <div class="sidebar-column">
+      <div class="tabs-container" role="tablist" aria-label="Secciones de información">
+        <button
+          class="tab-btn"
+          role="tab"
+          [class.active]="activeTab() === 'experience'"
+          [attr.aria-selected]="activeTab() === 'experience'"
+          aria-controls="sidebar-panel"
+          (click)="activeTab.set('experience')"
         >
+          Experiencia
+        </button>
+        <button
+          class="tab-btn"
+          role="tab"
+          [class.active]="activeTab() === 'background'"
+          [attr.aria-selected]="activeTab() === 'background'"
+          aria-controls="sidebar-panel"
+          (click)="activeTab.set('background')"
+        >
+          Background
+        </button>
       </div>
-    </figure>
 
-    <section class="bio-content">
-      <header>
-        <h2 class="section-title">Sobre Mí</h2>
-        <div class="title-divider"></div>
-      </header>
-      
-      <p class="bio-text">
-        Soy un apasionado de la ingeniería web con una convicción clara: <strong>construir sistemas, no solo interfaces</strong>. Me especializo en el desarrollo FrontEnd utilizando tecnologías modernas como Angular y React, aplicando siempre los principios de Clean Architecture y SOLID.
-      </p>
-      
-      <p class="bio-text">
-        Mi enfoque se basa en resolver problemas complejos mediante la creación de código predecible, escalable y fuertemente tipado. No creo en los atajos; creo en comprender los fundamentos de la web, optimizar el rendimiento (Core Web Vitals) y ofrecer una experiencia de usuario (UX) inmersiva e impecable.
-      </p>
+      <aside
+        class="neumorphic-card info-card"
+        id="sidebar-panel"
+        role="tabpanel"
+        [attr.aria-label]="activeTab() === 'experience' ? 'Experiecia y Logros' : 'Background'"
+      >
+        @if (activeTab() === 'experience') {
+          <h2 class="card-title">Experiencia & Logros</h2>
+          <ul class="info-list" role="list">
+            <li class="info-item">
+              <strong> Frontend Freelance</strong>
+              <span>(Marzo - Dic 2025)</span>
+            </li>
+            <li class="info-item">
+              <strong>Camarero en Grupo Abades</strong>
+              <span>(Alhama de Murcia). Gestión de estrés y trato al cliente.</span>
+            </li>
+            <li class="info-item">
+              <strong> IBM Front End with React</strong>
+              <span>(edX).</span>
+            </li>
+            <li class="info-item">
+              <strong> AI Fluency Foundations</strong>
+              <span>(Anthropic).</span>
+            </li>
+          </ul>
+        } @else {
+          <h2 class="card-title">Background</h2>
+          <ul class="info-list" role="list">
+            <li class="info-item">
+              <strong>🎓 Formación</strong>
+              <span>Ing. del Software (UHU) — A 2 asignaturas + TFG.</span>
+            </li>
+            <li class="info-item">
+              <strong>🌍 Disponibilidad</strong>
+              <span>Total. Abierto a reubicación en España o trabajo remoto.</span>
+            </li>
+            <li class="info-item">
+              <strong>🗣️ Idiomas</strong>
+              <span>Inglés conversacional y técnico (Nivel B2 práctico).</span>
+            </li>
+          </ul>
+        }
+      </aside>
+    </div>
+  </section>
 
-      <p class="bio-text">
-        Cuando no estoy escribiendo código, me vas a encontrar diseñando arquitecturas de software, estudiando patrones de diseño avanzados o buscando la forma de optimizar hasta el último milisegundo de mis aplicaciones.
-      </p>
-    </section>
+  <section class="folder-section" aria-label="Más sobre Jonathan">
+    <div class="folder-tabs" role="tablist" aria-label="Secciones del folder">
+      <button
+        class="folder-tab"
+        role="tab"
+        [class.active]="folderTab() === 'enfoque'"
+        [attr.aria-selected]="folderTab() === 'enfoque'"
+        aria-controls="folder-panel"
+        (click)="folderTab.set('enfoque')"
+      >
+        Enfoque
+      </button>
+      <button
+        class="folder-tab"
+        role="tab"
+        [class.active]="folderTab() === 'historia'"
+        [attr.aria-selected]="folderTab() === 'historia'"
+        aria-controls="folder-panel"
+        (click)="folderTab.set('historia')"
+      >
+        Historia
+      </button>
+      <button
+        class="folder-tab"
+        role="tab"
+        [class.active]="folderTab() === 'valores'"
+        [attr.aria-selected]="folderTab() === 'valores'"
+        aria-controls="folder-panel"
+        (click)="folderTab.set('valores')"
+      >
+        Valores
+      </button>
+      <button
+        class="folder-tab"
+        role="tab"
+        [class.active]="folderTab() === 'hobbies'"
+        [attr.aria-selected]="folderTab() === 'hobbies'"
+        aria-controls="folder-panel"
+        (click)="folderTab.set('hobbies')"
+      >
+        Fuera del código
+      </button>
+    </div>
+    <div class="neumorphic-card folder-body" id="folder-panel" role="tabpanel">
+      @if (folderTab() === 'enfoque') {
+        <div class="folder-content fade-in">
+          <h3 class="folder-content-title">Mi forma de trabajar</h3>
+          <p class="folder-text">
+            Antes de escribir una sola línea de código me siento a
+            <strong>debatir la arquitectura</strong>. Las mejores decisiones se toman en la pizarra,
+            no en el editor. Prefiero un día de diseño limpio a una semana de refactorización.
+          </p>
+          <p class="folder-text">
+            Me muevo bien bajo presión porque separo el <strong>ruido del problema real</strong>.
+            Cuando algo se rompe en producción, mi primer instinto es entender, no entrar en pánico.
+          </p>
+        </div>
+      }
 
-  </article>
+      @if (folderTab() === 'historia') {
+        <div class="folder-content fade-in">
+          <h3 class="folder-content-title">El valor de los cimientos</h3>
+          <p class="folder-text">
+            Trabajando como único desarrollador en una asesoría, armé una app de escritorio con
+            Electron, React y Tailwind. Cuando me pidieron pasarla a web porque los jefes se perdían
+            con la instalación, el cambio me tomó apenas unos días.
+          </p>
+          <p class="folder-text">
+            Haber mantenido la arquitectura limpia y el <strong>frontend desacoplado</strong> fue mi
+            salvavidas. Esa experiencia me enseñó más sobre diseño de software que cualquier
+            asignatura.
+          </p>
+        </div>
+      }
+
+      @if (folderTab() === 'valores') {
+        <div class="folder-content fade-in">
+          <h3 class="folder-content-title">Lo que no negocio</h3>
+          <ul class="info-list" role="list">
+            <li class="info-item">
+              <strong> Arquitectura primero</strong>
+              <span>El código rápido que no escala no es una solución, es deuda técnica.</span>
+            </li>
+            <li class="info-item">
+              <strong> Comunicación directa</strong>
+              <span>Prefiero un "no funciona así" a tiempo que un "sí" que bloquea al equipo.</span>
+            </li>
+            <li class="info-item">
+              <strong> Aprendizaje continuo</strong>
+              <span
+                >Cada tecnología que aprendo la enseño. Enseñar es la mejor forma de
+                consolidar.</span
+              >
+            </li>
+          </ul>
+        </div>
+      }
+
+      @if (folderTab() === 'hobbies') {
+        <div class="folder-content fade-in">
+          <h3 class="folder-content-title">Cuando cierro el editor</h3>
+          <p class="folder-text">
+            El debate no se queda en el trabajo: me encanta discutir sobre historia, filosofía o por
+            qué cierto framework es objetivamente inferior. Si hay una tesis que defender, estoy
+            dentro.
+          </p>
+          <p class="folder-text">
+            También paso tiempo intentando entender cómo funciona todo lo que me rodea. Esa misma
+            curiosidad es la que me trajo a la programación.
+          </p>
+        </div>
+      }
+    </div>
+  </section>
 </main>

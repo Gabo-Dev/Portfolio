@@ -4,6 +4,7 @@
   flex: 1;
   min-height: 0;
   background-color: var(--neumorphic-background);
+  padding-top: clamp(1.5rem, 2vw, 2rem);
 }
 
 .home-container {
@@ -100,13 +101,15 @@
     transform: translate(-50%, -20%);
   }
 
-  10%, 40% {
+  10%,
+  40% {
     opacity: 1;
     transform: translate(-50%, -50%);
     pointer-events: auto;
   }
 
-  50%, 100% {
+  50%,
+  100% {
     opacity: 0;
     transform: translate(-50%, -80%);
   }

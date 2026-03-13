@@ -5,8 +5,8 @@
   overflow: hidden;
 
   @media (max-width: 900px) {
-    height: 100dvh;
-    min-height: 100%;
+    height: auto;
+    min-height: 100dvh;
     overflow: visible;
   }
 }
@@ -23,6 +23,9 @@ main {
   width: 100%;
   max-width: var(--content-max-width);
   margin: 0 auto;
+
+  overflow-y: auto;
+  overflow-x: hidden;
 
   @media (max-width: 900px) {
     height: auto;

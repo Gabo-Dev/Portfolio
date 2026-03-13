@@ -33,7 +33,7 @@ html {
   @media (max-width: 900px) {
     height: auto;
     min-height: 100dvh;
-    overflow-y: auto;
+    overflow-y: visible;
   }
 }
 
@@ -51,7 +51,7 @@ body {
 
   @media (max-width: 900px) {
     height: auto;
-    min-height: 100%;
+    min-height: 100dvh;
     overflow: visible;
   }
 }
