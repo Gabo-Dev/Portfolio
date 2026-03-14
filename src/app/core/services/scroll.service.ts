@@ -17,6 +17,11 @@ export class ScrollService {
   private handleScroll(event: Event): void {
     const target = event.target as HTMLElement;
     
+    // Ignorar scroll de elementos con clase 'terminal-content' (scroll interno del terminal)
+    if (target?.classList?.contains('terminal-content')) {
+      return;
+    }
+    
     if (!target || target.nodeType === 9) { 
       this.processScroll(window.pageYOffset || document.documentElement.scrollTop);
       return;

@@ -66,11 +66,8 @@
 }
 
 .terminal-view {
-  position: relative;
+  display: block;
   width: 100%;
-  display: flex;
-  flex-direction: column;
-  min-height: 100%;
 }
 
 .loader-wrapper {

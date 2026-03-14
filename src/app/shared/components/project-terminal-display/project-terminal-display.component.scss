@@ -1,20 +1,26 @@
 :host {
-  display: grid;
-  width: 100%;
-  height: 100%;
-  place-items: center;
-  padding: clamp(0.5rem, 2vw, 1rem); 
+  display: block;
+  padding: clamp(0.5rem, 2vw, 1.5rem);
   box-sizing: border-box;
 }
 
 .terminal-window {
   width: 100%;
-  max-width: 1100px;
-  min-height: clamp(500px, 85vw, 700px);
+  
+  // 100dvh - header fixed (80px) - footer (~64px) - host padding (~16px) - margen mínimo (~10px)
+  height: calc(100dvh - 170px);
+  max-height: 750px;
+  
+  @media (min-width: 600px) {
+    height: calc(100dvh - 150px);
+    max-height: 850px;
+  }
   
   @media (min-width: 900px) {
+    height: auto;
     aspect-ratio: 16 / 10;
-    min-height: auto;
+    max-width: 1100px;
+    margin: 0 auto;
   }
   
   background-color: #050505;
@@ -60,12 +66,12 @@
   gap: clamp(8px, 2vw, 15px);
   
   .terminal-controls {
-    flex-shrink: 0; 
+    flex-shrink: 0;
   }
   
   .terminal-navigation {
-    flex-grow: 1; 
-    justify-content: center; 
+    flex-grow: 1;
+    justify-content: center;
   }
 }
 
@@ -98,9 +104,9 @@
 .terminal-navigation {
   display: flex;
   align-items: center;
-  justify-content: center; 
+  justify-content: center;
   gap: clamp(8px, 2vw, 16px);
-  flex: 1 1 auto; 
+  flex: 1 1 auto;
 
   .nav-button {
     background: #414868;
@@ -114,8 +120,8 @@
     white-space: nowrap;
     
     flex: 0 1 auto;
-    min-height: 44px; 
-    min-width: 44px; 
+    min-height: 44px;
+    min-width: 44px;
     
     padding: clamp(0.3rem, 1vw + 0.2rem, 0.75rem) clamp(0.4rem, 1.5vw + 0.3rem, 1.25rem);
     font-size: clamp(0.7rem, 0.5vw + 0.5rem, 0.9rem);
@@ -151,7 +157,7 @@
     flex-shrink: 0;
     
     @media (max-width: 480px) {
-      display: none; 
+      display: none;
     }
   }
 
@@ -364,7 +370,7 @@
 .project-gif {
   max-width: 100%;
   max-height: 400px;
-  aspect-ratio: 16 / 9; 
+  aspect-ratio: 16 / 9;
   background-color: rgba(255, 255, 255, 0.03);
   object-fit: contain;
   display: block;
@@ -404,7 +410,7 @@
   .terminal-content { font-size: 0.95rem; }
   .highlight-title { font-size: 1.6rem; }
   .terminal-navigation {
-    .nav-button.back { font-size: 0.8rem; } 
+    .nav-button.back { font-size: 0.8rem; }
   }
   .tech-stack-container { grid-template-columns: 1fr 1fr; }
 }
