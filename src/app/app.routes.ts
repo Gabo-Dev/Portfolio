@@ -10,6 +10,10 @@ export const routes: Routes = [
     component: HomeComponent,
   },
   {
+    path: 'projects/:id',
+    component: ProjectsComponent,
+  },
+  {
     path: 'projects',
     component: ProjectsComponent,
   },

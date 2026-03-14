@@ -8,10 +8,9 @@ import { PROJECTS_DATA } from '../constants/projects-data';
 export class ProjectService {
   private readonly _projects = signal<Project[]>(PROJECTS_DATA);
   
-  // Exponemos como signal readonly
   readonly projects = this._projects.asReadonly();
 
-  getProjectById(id: number): Project | undefined {
+  getProjectById(id: string): Project | undefined {
     return this._projects().find((project) => project.id === id);
   }
 }

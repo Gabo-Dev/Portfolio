@@ -2,7 +2,7 @@ import { Project, PROJECT_STATUS, TERMINAL_CARD_COLOR, TERMINAL_CARD_TYPE } from
 
 export const PROJECTS_DATA: Project[] = [
   {
-    id: 1,
+    id: 'GScribe',
     title: 'GScribe',
     description: 'Espacio de trabajo seguro implementado con Arquitectura Hexagonal.',
     technologies: [
@@ -23,7 +23,7 @@ export const PROJECTS_DATA: Project[] = [
     demoUrl: 'https://gscribe-c202a.web.app/',
   },
   {
-    id: 2,
+    id: 'GAPI',
     title: 'GAPI',
     description: 'Dashboard cripto resiliente diseñado con Clean Architecture.',
     technologies: [
@@ -44,7 +44,7 @@ export const PROJECTS_DATA: Project[] = [
     demoUrl: 'https://gapi-eight.vercel.app/',
   },
   {
-    id: 3,
+    id: 'ManagerApp',
     title: 'ManagerApp',
     description: 'Herramienta de escritorio Local-First para gestión de clientes.',
     technologies: [

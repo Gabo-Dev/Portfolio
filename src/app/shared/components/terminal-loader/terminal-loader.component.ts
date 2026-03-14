@@ -37,6 +37,6 @@ export class TerminalLoaderComponent implements OnInit {
       } else {
         clearInterval(interval);
       }
-    }, 150);
+    }, 150); 
   }
 }

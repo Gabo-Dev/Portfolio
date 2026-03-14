@@ -11,7 +11,7 @@ import { Project } from '@core/models/project.model';
 })
 export class ProjectTerminalCardComponent {
   project = input.required<Project>();
-  executeProject = output<number>();
+  executeProject = output<string>();
 
   onExecute(): void {
     this.executeProject.emit(this.project().id);

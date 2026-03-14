@@ -1,6 +1,6 @@
 <main class="projects-layout">
   
-  <div class="projects-view" [class.hidden]="activeProjectId() !== null">
+  <div class="projects-view" [class.hidden]="id() !== undefined">
     <header class="projects-header">
       <h1 class="header-glitch">Mis Proyectos</h1>
     </header>
@@ -17,14 +17,14 @@
     </section>
   </div>
 
-  @if (activeProjectId() && selectedProject()) {
-    <div class="terminal-overlay">
-      @if (isBooting()) {
-        <div class="loader-wrapper">
-          <app-terminal-loader />
-        </div>
-      } @else {
-        @defer (on immediate) {
+  @if (id() && selectedProject()) {
+    <div class="terminal-view">
+      @defer (on immediate) {
+        @if (isBooting()) {
+          <div class="loader-wrapper">
+            <app-terminal-loader />
+          </div>
+        } @else {
           <app-project-terminal-display
             [project]="selectedProject()!"
             [allProjects]="projects()"
@@ -32,6 +32,10 @@
             (navigateProject)="onExecuteProject($event)"
           />
         }
+      } @loading {
+        <div class="loader-wrapper">
+          <app-terminal-loader />
+        </div>
       }
     </div>
   }

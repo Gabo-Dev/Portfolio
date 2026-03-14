@@ -1,6 +1,8 @@
-import { Component, inject, OnInit, signal, computed, ChangeDetectionStrategy } from '@angular/core';
+import { Component, inject, signal, computed, ChangeDetectionStrategy, input, effect } from '@angular/core';
+import { Router } from '@angular/router';
 import { Project } from '@core/models/project.model';
 import { ProjectService } from '@core/services/project.service';
+import { LayoutService } from '@core/services/layout.service';
 import { TerminalLoaderComponent } from '@shared/components/terminal-loader/terminal-loader.component';
 import { ProjectTerminalDisplayComponent } from '@shared/components/project-terminal-display/project-terminal-display.component';
 import { ProjectTerminalCardComponent } from '@shared/components/project-terminal-card/project-terminal-card.component';
@@ -13,32 +15,43 @@ import { ProjectTerminalCardComponent } from '@shared/components/project-termina
   styleUrl: './projects.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ProjectsComponent implements OnInit {
+export class ProjectsComponent {
   private readonly projectService = inject(ProjectService);
+  private readonly layoutService = inject(LayoutService);
+  private readonly router = inject(Router);
   
-  public readonly projects = signal<Project[]>([]);
-  public readonly activeProjectId = signal<number | null>(null);
+  public readonly projects = this.projectService.projects;
+  public readonly id = input<string>();
   public readonly isBooting = signal<boolean>(false);
   
-  public readonly selectedProject = computed(() => 
-    this.projects().find(p => p.id === this.activeProjectId())
-  );
+  public readonly selectedProject = computed(() => {
+    const projectId = this.id();
+    return projectId ? this.projects().find(p => p.id === projectId) : null;
+  });
 
-  ngOnInit(): void {
-    this.projects.set(this.projectService.projects());
+  constructor() {
+    effect(() => {
+      const currentId = this.id();
+      if (currentId) {
+        this.isBooting.set(true);
+        this.layoutService.hideFooter();
+        
+        setTimeout(() => {
+          this.isBooting.set(false);
+          this.layoutService.showFooter();
+        }, 1500);
+      } else {
+        this.isBooting.set(false);
+        this.layoutService.showFooter();
+      }
+    });
   }
 
-  onExecuteProject(id: number): void {
-    this.activeProjectId.set(id);
-    this.isBooting.set(true);
-    
-    setTimeout(() => {
-      this.isBooting.set(false);
-    }, 1500);
+  onExecuteProject(id: string): void {
+    this.router.navigate(['/projects', id]);
   }
 
   onCloseTerminal(): void {
-    this.activeProjectId.set(null);
-    this.isBooting.set(false);
+    this.router.navigate(['/projects']);
   }
 }

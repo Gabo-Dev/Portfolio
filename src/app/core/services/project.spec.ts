@@ -28,7 +28,7 @@ describe('ProjectService', () => {
   });
 
   it('should return undefined for a non-existent project id', () => {
-    const found = service.getProjectById(999);
+    const found = service.getProjectById('non-existent');
     expect(found).toBeUndefined();
   });
 });

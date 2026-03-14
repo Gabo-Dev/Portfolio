@@ -1,7 +1,6 @@
-import { Component, input, output, inject, signal, computed, ChangeDetectionStrategy } from '@angular/core';
+import { Component, input, output, computed, ChangeDetectionStrategy } from '@angular/core';
 import { LowerCasePipe } from '@angular/common';
 import { Project } from '@core/models/project.model';
-import { ProjectService } from '@core/services/project.service';
 
 @Component({
   selector: 'app-project-terminal-display',
@@ -15,9 +14,7 @@ export class ProjectTerminalDisplayComponent {
   project = input.required<Project>();
   allProjects = input.required<Project[]>();
   closeTerminal = output<void>();
-  navigateProject = output<number>();
-
-  private projectService = inject(ProjectService);
+  navigateProject = output<string>();
 
   public currentProjectIndex = computed(() => {
     if (this.allProjects() && this.project()) {
