@@ -3,15 +3,12 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: 100dvh; 
-  overflow: hidden; 
   background-color: var(--neumorphic-background);
 }
 
 .projects-view {
   display: flex;
   flex-direction: column;
-  height: 100%;
   width: 100%;
   transition: opacity 0.3s ease-out;
 
@@ -39,21 +36,9 @@
 }
 
 .projects-content {
-  flex: 1;
-  min-height: 0;
-  overflow-y: auto; 
   padding: clamp(1rem, 3vw, 2rem);
   display: flex;
   justify-content: center;
-  
-  
-  &::-webkit-scrollbar {
-    width: 6px;
-  }
-  &::-webkit-scrollbar-thumb {
-    background: var(--neumorphic-dark-shadow);
-    border-radius: 10px;
-  }
 }
 
 .cards-wrapper {
