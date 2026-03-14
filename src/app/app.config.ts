@@ -1,5 +1,5 @@
 import { ApplicationConfig, provideBrowserGlobalErrorListeners } from '@angular/core';
-import { provideRouter } from '@angular/router';
+import { provideRouter, withViewTransitions } from '@angular/router';
 import { provideCloudinaryLoader } from '@angular/common';
 
 import { routes } from '@app/app.routes';
@@ -7,7 +7,7 @@ import { routes } from '@app/app.routes';
 export const appConfig: ApplicationConfig = {
   providers: [
     provideBrowserGlobalErrorListeners(),
-    provideRouter(routes),
+    provideRouter(routes, withViewTransitions()),
     provideCloudinaryLoader('https://res.cloudinary.com/da1lxmeng'),
   ],
 };

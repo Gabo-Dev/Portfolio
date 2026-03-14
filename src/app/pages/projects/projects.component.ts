@@ -14,16 +14,13 @@ import { ProjectTerminalCardComponent } from '@shared/components/project-termina
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProjectsComponent implements OnInit {
-  private projectService = inject(ProjectService);
+  private readonly projectService = inject(ProjectService);
   
-  public projects = signal<Project[]>([]);
-  public areCardsVisible = signal<boolean>(true); 
-  public isLoading = signal<boolean>(false);
-  public isTerminalVisible = signal<boolean>(false);
-  public isTerminalTransitioning = signal<boolean>(false);
-  public activeProjectId = signal<number | null>(null);
+  public readonly projects = signal<Project[]>([]);
+  public readonly activeProjectId = signal<number | null>(null);
+  public readonly isBooting = signal<boolean>(false);
   
-  public selectedProject = computed(() => 
+  public readonly selectedProject = computed(() => 
     this.projects().find(p => p.id === this.activeProjectId())
   );
 
@@ -32,36 +29,16 @@ export class ProjectsComponent implements OnInit {
   }
 
   onExecuteProject(id: number): void {
-    this.isLoading.set(true);
-    this.areCardsVisible.set(false);
+    this.activeProjectId.set(id);
+    this.isBooting.set(true);
     
     setTimeout(() => {
-      this.isLoading.set(false);
-      this.activeProjectId.set(id);
-      this.isTerminalTransitioning.set(true);
-      
-      setTimeout(() => {
-        this.isTerminalVisible.set(true);
-        this.isTerminalTransitioning.set(false);
-      }, 50);
-    }, 800);
+      this.isBooting.set(false);
+    }, 1500);
   }
 
   onCloseTerminal(): void {
-    this.isTerminalTransitioning.set(true);
-    
-    setTimeout(() => {
-      this.isTerminalVisible.set(false);
-      this.activeProjectId.set(null);
-      this.isTerminalTransitioning.set(false);
-      this.isLoading.set(true);
-      
-      setTimeout(() => {
-        this.isLoading.set(false);
-        setTimeout(() => {
-          this.areCardsVisible.set(true);
-        }, 200);
-      }, 800);
-    }, 500);
+    this.activeProjectId.set(null);
+    this.isBooting.set(false);
   }
 }

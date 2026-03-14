@@ -1,42 +1,39 @@
 <main class="projects-layout">
   
-  @if (isLoading()) {
-    <div class="loader-wrapper">
-      <app-terminal-loader />
-    </div>
-  } @else {
-    
+  <div class="projects-view" [class.hidden]="activeProjectId() !== null">
+    <header class="projects-header">
+      <h1 class="header-glitch">Mis Proyectos</h1>
+    </header>
 
-    @if (!isTerminalVisible() && !isTerminalTransitioning()) {
-      <div class="projects-view" [class.hidden]="!areCardsVisible()">
-        <header class="projects-header">
-          <h1 class="header-glitch">Mis Proyectos</h1>
-        </header>
-
-        <section class="projects-content">
-          <div class="cards-wrapper">
-            @for (project of projects(); track project.id) {
-              <app-project-terminal-card [project]="project" (executeProject)="onExecuteProject($event)" />
-            }
-          </div>
-        </section>
+    <section class="projects-content">
+      <div class="cards-wrapper">
+        @for (project of projects(); track project.id) {
+          <app-project-terminal-card 
+            [project]="project" 
+            (executeProject)="onExecuteProject($event)" 
+          />
+        }
       </div>
-    }
-
-
-    <section class="terminal-display-section"
-      [class.visible]="isTerminalVisible()"
-      [class.transitioning]="isTerminalTransitioning()">
-      
-      @if (isTerminalVisible() && selectedProject()) {
-        <app-project-terminal-display
-          [project]="selectedProject()!"
-          [allProjects]="projects()"
-          (closeTerminal)="onCloseTerminal()"
-          (navigateProject)="onExecuteProject($event)"
-        />
-      }
     </section>
+  </div>
 
+  @if (activeProjectId() && selectedProject()) {
+    <div class="terminal-overlay">
+      @if (isBooting()) {
+        <div class="loader-wrapper">
+          <app-terminal-loader />
+        </div>
+      } @else {
+        @defer (on immediate) {
+          <app-project-terminal-display
+            [project]="selectedProject()!"
+            [allProjects]="projects()"
+            (closeTerminal)="onCloseTerminal()"
+            (navigateProject)="onExecuteProject($event)"
+          />
+        }
+      }
+    </div>
   }
+
 </main>

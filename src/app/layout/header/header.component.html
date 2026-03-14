@@ -1,8 +1,9 @@
-<header class="main-header">
+<header class="main-header" [class.menu-expanded]="isMenuOpen()">
   <a class="logo" routerLink="/">Gabo-Dev</a>
 
   <button
     class="hamburger-btn"
+    [class.active]="isMenuOpen()"
     (click)="toggleMenu()"
     [attr.aria-expanded]="isMenuOpen()"
     aria-label="Toggle navigation"

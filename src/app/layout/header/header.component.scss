@@ -1,54 +1,91 @@
 :host {
   display: block;
   width: 100%;
-  flex-shrink: 0;
-  position: relative;
   z-index: 1000;
-  margin: 0;
+  
+  position: fixed;
+  top: 0;
+  left: 0;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 
-  @media (max-width: 900px) {
-    margin-top: clamp(10px, 3vw, 25px);
+  &.header-hidden {
+    transform: translateY(-100%);
+  }
+
+  @media (min-width: 900px) {
+    position: sticky;
+    transform: none !important;
   }
 }
 
-.main-header {
+  .main-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap;
   background-color: var(--neumorphic-background);
-  padding: clamp(15px, 2.5vw, 25px) clamp(20px, 6vw, var(--global-padding-desktop));
+  padding: clamp(12px, 2vw, 20px) clamp(15px, 4vw, 30px);
   box-shadow: var(--neumorphic-shadow-convex);
-  border-radius: var(--neumorphic-card-radius);
-  max-width: var(--content-max-width);
-  margin: 0 auto;
+  border-radius: 0 0 var(--neumorphic-card-radius) var(--neumorphic-card-radius);
+  max-width: 100%;
+  margin: 0;
+  position: relative;
+  z-index: 1002;
+  transition: border-radius 0.3s ease; 
+
+  &.menu-expanded {
+    border-radius: 0; 
+    box-shadow: none; 
+  }
+
+  @media (min-width: 900px) {
+    border-radius: var(--neumorphic-card-radius);
+    margin: 1rem auto;
+    max-width: var(--content-max-width);
+  }
 }
 
 .logo {
-  font-size: 1.5rem;
-  font-weight: bold;
+  font-size: 1.4rem;
+  font-weight: 800;
   font-family: var(--font-family-headings);
-  text-decoration: none;
+  text-decoration: none; 
   color: var(--text-primary);
-  z-index: 1001;
+  letter-spacing: -0.5px;
+  
+  span {
+    color: var(--primary-accent);
+  }
 }
 
 .hamburger-btn {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   gap: 5px;
-  background: transparent;
+  width: 44px;
+  height: 44px;
+  background: var(--neumorphic-background);
   border: none;
   cursor: pointer;
-  padding: 5px;
+  border-radius: 10px;
+  box-shadow: var(--neumorphic-shadow-convex-sm);
   z-index: 1001;
+  transition: all 0.2s ease;
 
   .bar {
-    width: 25px;
-    height: 3px;
+    width: 22px;
+    height: 2px;
     background-color: var(--text-primary);
-    border-radius: 3px;
-    transition: all 0.3s ease;
+    border-radius: 2px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  &.active {
+    box-shadow: var(--neumorphic-shadow-concave-sm);
+    .bar:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .bar:nth-child(2) { opacity: 0; }
+    .bar:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
   }
 
   @media (min-width: 768px) {
@@ -63,9 +100,11 @@
   left: 0;
   width: 100%;
   background-color: var(--neumorphic-background);
-  padding: 1rem 0;
-  box-shadow: var(--neumorphic-shadow-convex-sm);
+  padding: 2rem 0;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
   border-radius: 0 0 var(--neumorphic-card-radius) var(--neumorphic-card-radius);
+  z-index: 1000;
+  animation: slideDown 0.3s ease-out forwards;
 
   &.menu-open {
     display: flex;
@@ -75,7 +114,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1.5rem;
+    gap: 2rem;
     list-style: none;
     margin: 0;
     padding: 0;
@@ -84,13 +123,16 @@
 
   a {
     color: var(--text-primary);
-    text-decoration: none;
-    font-size: 1.1rem;
-    font-weight: bold;
-    transition: color 0.2s ease-in-out;
+    text-decoration: none; 
+    font-size: 1.2rem;
+    font-weight: 600;
+    transition: all 0.2s ease;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
 
-    &:hover {
+    &:hover, &.active {
       color: var(--primary-accent);
+      background-color: rgba(var(--primary-accent-rgb), 0.1);
     }
   }
 
@@ -100,9 +142,27 @@
     box-shadow: none;
     padding: 0;
     width: auto;
+    background: transparent;
+    animation: none;
 
     .nav-links {
       flex-direction: row;
+      gap: 1rem;
     }
+
+    a {
+      font-size: 1rem;
+    }
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
