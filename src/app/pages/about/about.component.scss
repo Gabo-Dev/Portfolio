@@ -1,11 +1,13 @@
 :host {
   display: block;
   width: 100%;
+  height: 100%;
   box-sizing: border-box;
-  padding: clamp(2rem, 4vw, 1.5rem) 0 2rem 0;
+  padding: clamp(2rem, 4vw, 1.5rem) 0 1rem 0;
+  overflow: visible;
   @media (min-width: 900px) {
     padding-top: 1rem;
-    padding-bottom: 2rem;
+    padding-bottom: 1rem;
   }
 }
 
@@ -64,10 +66,10 @@
 
   @media (min-width: 1024px) {
     display: grid;
-    grid-template-columns: auto 1fr;
+    grid-template-columns: 240px 1fr;
     align-items: center;
     text-align: left;
-    gap: 2rem;
+    gap: 2.5rem;
     padding: 0;
   }
 }
@@ -80,11 +82,28 @@
 .profile-photo {
   border-radius: 50%;
   object-fit: cover;
-  width: clamp(110px, 10vw, 160px);
-  height: clamp(110px, 10vw, 160px);
+  width: clamp(140px, 35vw, 200px);
+  height: clamp(140px, 35vw, 200px);
   display: block;
-  border: 4px solid var(--neumorphic-background);
-  box-shadow: var(--neumorphic-shadow-convex);
+  border: 5px solid var(--neumorphic-background);
+  box-shadow: 
+    0 10px 40px rgba(0, 0, 0, 0.3),
+    0 0 0 1px rgba(255, 255, 255, 0.1),
+    var(--neumorphic-shadow-convex);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  @media (min-width: 1024px) {
+    width: 220px;
+    height: 220px;
+  }
+
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: 
+      0 15px 50px rgba(0, 0, 0, 0.4),
+      0 0 0 1px rgba(255, 255, 255, 0.15),
+      var(--neumorphic-shadow-convex);
+  }
 }
 
 .profile-info {
@@ -313,13 +332,7 @@
   padding-left: 0.75rem;
   position: relative;
   z-index: 1;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: none;
-
-  &::-webkit-scrollbar {
-    display: none;
-  }
+  flex-wrap: wrap;
 
   @media (min-width: 768px) {
     padding-left: 1.5rem;
