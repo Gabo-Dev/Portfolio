@@ -1,4 +1,5 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Component, inject, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { MetaService } from '@core/services/meta.service';
 
 @Component({
   selector: 'app-contact',
@@ -7,4 +8,14 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
   styleUrl: './contact.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ContactComponent {}
+export class ContactComponent implements OnInit {
+  private readonly metaService = inject(MetaService);
+
+  ngOnInit(): void {
+    this.metaService.updateMetaTags({
+      title: 'Contacto - Jonathan Orna',
+      description: 'Ponte en contacto conmigo. Disponible para proyectos freelance, trabajo remoto o reubicación en España.',
+    });
+  }
+}
+

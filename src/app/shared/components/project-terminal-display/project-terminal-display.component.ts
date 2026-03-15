@@ -1,4 +1,4 @@
-import { Component, input, output, computed, ChangeDetectionStrategy } from '@angular/core';
+import { Component, input, output, computed, signal, ChangeDetectionStrategy, effect, HostListener } from '@angular/core';
 import { LowerCasePipe } from '@angular/common';
 import { Project } from '@core/models/project.model';
 
@@ -16,6 +16,8 @@ export class ProjectTerminalDisplayComponent {
   closeTerminal = output<void>();
   navigateProject = output<string>();
 
+  isModalOpen = signal(false);
+
   public currentProjectIndex = computed(() => {
     if (this.allProjects() && this.project()) {
       return this.allProjects().findIndex(p => p.id === this.project().id);
@@ -24,6 +26,23 @@ export class ProjectTerminalDisplayComponent {
   });
 
   public totalProjects = computed(() => this.allProjects() ? this.allProjects().length : 0);
+
+  constructor() {
+    effect(() => {
+      if (this.isModalOpen()) {
+        document.body.style.overflow = 'hidden';
+      } else {
+        document.body.style.overflow = '';
+      }
+    });
+  }
+
+  @HostListener('document:keydown.escape')
+  onEscapeKey(): void {
+    if (this.isModalOpen()) {
+      this.closeVideoModal();
+    }
+  }
 
   onCloseClick(): void {
     this.closeTerminal.emit();
@@ -42,6 +61,20 @@ export class ProjectTerminalDisplayComponent {
     if (currentIndex > -1 && this.allProjects() && this.totalProjects() > 0) {
       const prevIndex = (currentIndex - 1 + this.totalProjects()) % this.totalProjects();
       this.navigateProject.emit(this.allProjects()[prevIndex].id);
+    }
+  }
+
+  openVideoModal(): void {
+    this.isModalOpen.set(true);
+  }
+
+  closeVideoModal(): void {
+    this.isModalOpen.set(false);
+  }
+
+  onBackdropClick(event: MouseEvent): void {
+    if (event.target === event.currentTarget) {
+      this.closeVideoModal();
     }
   }
 }

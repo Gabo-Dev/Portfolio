@@ -45,14 +45,10 @@
     <pre class="terminal-text">
 <span class="prompt-user">gabo@dev</span>:<span class="prompt-dir">~/projects/{{ project().title | lowercase }}</span><span class="prompt-sym">$</span> cat README.md
 
-<span class="highlight-title">{{ project().title }}</span>
---------------------------------------------------
-
-<span class="section-title">Información del Proyecto:</span>
-Version: {{ project().version || '1.0.0' }}
+<span class="highlight-title">{{ project().title }}</span><span class="title-separator">--------------------------------------------------</span>
+<span class="project-info">Version: {{ project().version || '1.0.0' }}
 Status: <span class="status-deployed">{{ project().status }}</span>
-Deployment Date: {{ project().deploymentDate }}
-
+Deployment Date: {{ project().deploymentDate }}</span>
 <span class="section-title">Descripción:</span>
 {{ project().terminalDescription }}
 
@@ -86,16 +82,22 @@ Deployment Date: {{ project().deploymentDate }}
 
 <span class="section-title">Vista Previa:</span>
 @if (project().terminalGifUrl) {
-  <video 
-    [src]="project().terminalGifUrl" 
-    class="project-gif" 
-    autoplay 
-    loop 
-    [muted]="true" 
-    playsinline
-    preload="none"
-    aria-label="Video de demostración de la interfaz">
-  </video>
+  <div class="video-wrapper" (click)="openVideoModal()">
+    <video 
+      [src]="project().terminalGifUrl" 
+      class="project-gif" 
+      autoplay 
+      loop 
+      [muted]="true" 
+      playsinline
+      preload="none"
+      aria-label="Video de demostración de la interfaz"
+      tabindex="0"
+      role="button"
+      [attr.aria-expanded]="isModalOpen()">
+    </video>
+    <span class="video-hint">⬆️ Click para ampliar ⬆️</span>
+  </div>
 } @else {
   <span class="no-gif-message">No hay vista previa disponible.</span>
 }
@@ -120,4 +122,36 @@ Deployment Date: {{ project().deploymentDate }}
     </span>
   </footer>
 </article>
+
+@if (isModalOpen() && project().terminalGifUrl) {
+  <div 
+    class="video-modal-backdrop" 
+    (click)="onBackdropClick($event)"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="modal-title">
+    <div class="video-modal-container">
+      <div class="modal-terminal-bar">
+        <div class="modal-controls">
+          <span class="terminal-button close" (click)="closeVideoModal()" role="button" tabindex="0" aria-label="Cerrar modal"></span>
+          <span class="terminal-button minimize" aria-hidden="true"></span>
+          <span class="terminal-button maximize" aria-hidden="true"></span>
+        </div>
+        <span class="modal-title" id="modal-title">{{ project().title }} - Vista Previa</span>
+        <button class="modal-close-btn" (click)="closeVideoModal()">ESC</button>
+      </div>
+      <div class="modal-video-wrapper">
+        <video 
+          [src]="project().terminalGifUrl" 
+          autoplay 
+          loop 
+          [muted]="true" 
+          playsinline
+          aria-label="Video de demostración en pantalla completa">
+        </video>
+        <span class="modal-hint">Click fuera del video o presiona ESC para cerrar</span>
+      </div>
+    </div>
+  </div>
+}
 

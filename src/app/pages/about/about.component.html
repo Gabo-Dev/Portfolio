@@ -147,16 +147,6 @@
       >
         Valores
       </button>
-      <button
-        class="folder-tab"
-        role="tab"
-        [class.active]="folderTab() === 'hobbies'"
-        [attr.aria-selected]="folderTab() === 'hobbies'"
-        aria-controls="folder-panel"
-        (click)="folderTab.set('hobbies')"
-      >
-        Fuera del código
-      </button>
     </div>
     <div class="neumorphic-card folder-body" id="folder-panel" role="tabpanel">
       @if (folderTab() === 'enfoque') {
@@ -210,21 +200,6 @@
               >
             </li>
           </ul>
-        </div>
-      }
-
-      @if (folderTab() === 'hobbies') {
-        <div class="folder-content fade-in">
-          <h3 class="folder-content-title">Cuando cierro el editor</h3>
-          <p class="folder-text">
-            El debate no se queda en el trabajo: me encanta discutir sobre historia, filosofía o por
-            qué cierto framework es objetivamente inferior. Si hay una tesis que defender, estoy
-            dentro.
-          </p>
-          <p class="folder-text">
-            También paso tiempo intentando entender cómo funciona todo lo que me rodea. Esa misma
-            curiosidad es la que me trajo a la programación.
-          </p>
         </div>
       }
     </div>
