@@ -1,0 +1,18 @@
+<section class="not-found-page" aria-labelledby="not-found-title">
+  <div class="not-found-card">
+    <p class="error-code">404</p>
+    <h1 id="not-found-title">Página no encontrada</h1>
+    <p class="message">La ruta que buscaste no existe, fue movida o no está disponible.</p>
+
+    <div class="terminal-box" role="status" aria-live="polite">
+      <span class="prompt">$</span>
+      <span class="command">cat /ruta</span>
+      <span class="result">No such file or directory</span>
+    </div>
+
+    <div class="actions">
+      <a routerLink="/" class="btn-primary">Volver al inicio</a>
+      <a routerLink="/projects" class="btn-secondary">Ver proyectos</a>
+    </div>
+  </div>
+</section>

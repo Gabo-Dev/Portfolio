@@ -1,4 +1,13 @@
-import { Component, inject, signal, computed, ChangeDetectionStrategy, input, effect, OnInit } from '@angular/core';
+import {
+  Component,
+  inject,
+  signal,
+  computed,
+  ChangeDetectionStrategy,
+  input,
+  effect,
+  OnInit,
+} from '@angular/core';
 import { Router } from '@angular/router';
 import { Project } from '@core/models/project.model';
 import { ProjectService } from '@core/services/project.service';
@@ -21,20 +30,27 @@ export class ProjectsComponent implements OnInit {
   private readonly layoutService = inject(LayoutService);
   private readonly metaService = inject(MetaService);
   private readonly router = inject(Router);
-  
+
   public readonly projects = this.projectService.projects;
   public readonly id = input<string>();
   public readonly isBooting = signal<boolean>(false);
-  
+
   public readonly selectedProject = computed(() => {
     const projectId = this.id();
-    return projectId ? this.projects().find(p => p.id === projectId) : null;
+    return projectId ? this.projects().find((project: Project) => project.id === projectId) : null;
   });
 
   constructor() {
     effect(() => {
       const currentId = this.id();
       const project = this.selectedProject();
+
+      if (currentId && !project) {
+        this.isBooting.set(false);
+        this.layoutService.showFooter();
+        this.router.navigate(['/not-found'], { replaceUrl: true });
+        return;
+      }
 
       if (project) {
         this.metaService.updateMetaTags({
@@ -45,14 +61,15 @@ export class ProjectsComponent implements OnInit {
       } else {
         this.metaService.updateMetaTags({
           title: 'Proyectos - Jonathan Orna',
-          description: 'Explora mis proyectos frontend: GScribe, GAPI, ManagerApp y más. Aplicaciones reales con Angular, React, Electron y arquitecturas modernas.',
+          description:
+            'Explora mis proyectos frontend: GScribe, GAPI, ManagerApp y más. Aplicaciones reales con Angular, React, Electron y arquitecturas modernas.',
         });
       }
 
       if (currentId) {
         this.isBooting.set(true);
         this.layoutService.hideFooter();
-        
+
         setTimeout(() => {
           this.isBooting.set(false);
           this.layoutService.showFooter();
@@ -68,7 +85,8 @@ export class ProjectsComponent implements OnInit {
     if (!this.id()) {
       this.metaService.updateMetaTags({
         title: 'Proyectos - Jonathan Orna',
-        description: 'Explora mis proyectos frontend: GScribe, GAPI, ManagerApp y más. Aplicaciones reales con Angular, React, Electron y arquitecturas modernas.',
+        description:
+          'Explora mis proyectos frontend: GScribe, GAPI, ManagerApp y más. Aplicaciones reales con Angular, React, Electron y arquitecturas modernas.',
       });
     }
   }
