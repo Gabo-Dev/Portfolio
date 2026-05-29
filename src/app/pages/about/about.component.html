@@ -147,6 +147,26 @@
       >
         Valores
       </button>
+      <button
+        class="folder-tab"
+        role="tab"
+        [class.active]="folderTab() === 'freelance'"
+        [attr.aria-selected]="folderTab() === 'freelance'"
+        aria-controls="folder-panel"
+        (click)="folderTab.set('freelance')"
+      >
+        Freelance
+      </button>
+      <button
+        class="folder-tab"
+        role="tab"
+        [class.active]="folderTab() === 'actual'"
+        [attr.aria-selected]="folderTab() === 'actual'"
+        aria-controls="folder-panel"
+        (click)="folderTab.set('actual')"
+      >
+        Colaboraciones
+      </button>
     </div>
     <div class="neumorphic-card folder-body" id="folder-panel" role="tabpanel">
       @if (folderTab() === 'enfoque') {
@@ -200,6 +220,99 @@
               >
             </li>
           </ul>
+        </div>
+      }
+
+      @if (folderTab() === 'freelance') {
+        <div class="folder-content fade-in">
+          <h3 class="folder-content-title">Desarrollador de Software (Freelance)</h3>
+
+          <div class="freelance-metadata">
+            <span class="meta-chip"><strong>Cliente:</strong> Asesoría de nutrición y entrenamiento personal</span>
+            <span class="meta-chip"><strong>Duración:</strong> Marzo - Diciembre 2025</span>
+            <span class="meta-chip"><strong>Modalidad:</strong> Remoto</span>
+            <span class="meta-chip"><strong>Localidad:</strong> Totana - Alhama de Murcia</span>
+          </div>
+
+          <p class="folder-text">
+            Trabajé como único desarrollador en una <strong>startup de nutrición y entrenamiento
+            personal</strong>. El equipo estaba formado por los co-founders, ambos sin perfil
+            técnico.
+          </p>
+
+          <p class="folder-text"><strong>Toma de requisitos:</strong></p>
+          <ul class="freelance-list">
+            <li>Observaba su flujo de trabajo diario</li>
+            <li>Detectaba los cuellos de botella</li>
+            <li>Proponía herramientas concretas para cada problema</li>
+          </ul>
+
+          <h4 class="folder-subtitle">Proyectos</h4>
+
+          <div class="project-block">
+            <div class="project-header">
+              <span class="project-name">Landing Page — Webflow</span>
+              <span class="project-metric">+20% leads</span>
+            </div>
+            <p class="folder-text">
+              Primera toma de contacto. Captábamos clientes desde los CTA y redes sociales,
+              asegurando el embudo de captación.
+            </p>
+          </div>
+
+          <div class="project-block">
+            <div class="project-header">
+              <span class="project-name">App escritorio — Electron</span>
+              <span class="project-tag">MVP</span>
+            </div>
+            <p class="folder-text">
+              Construí un MVP de escritorio para validar la solución internamente. Al funcionar,
+              los co-founders pidieron llevarlo a web. La migración fue cuestión de días porque
+              el frontend ya estaba <strong>desacoplado de la lógica de negocio</strong>.
+            </p>
+          </div>
+
+          <div class="project-block">
+            <div class="project-header">
+              <span class="project-name">Dashboard web — Vercel + React + Supabase</span>
+              <span class="project-metric">-60% tareas admin</span>
+            </div>
+            <p class="folder-text">
+              Cada miembro gestionaba sus clientes, medidas antropométricas e historiales, y
+              también las <strong>tareas comunes del sistema</strong>: cuentas de empresa,
+              registros diarios y métricas compartidas.
+            </p>
+          </div>
+        </div>
+      }
+
+      @if (folderTab() === 'actual') {
+        <div class="folder-content fade-in">
+          <h4 class="folder-subtitle">Stack & Flow — Design System</h4>
+
+          <div class="freelance-metadata">
+            <span class="meta-chip status-active">En activo</span>
+            <span class="meta-chip"><strong>Rol:</strong> Colaborador Frontend</span>
+            <span class="meta-chip"><strong>Stack:</strong> React · TypeScript · Tailwind · Radix UI · Storybook</span>
+          </div>
+
+          <p class="folder-text">
+            Colaboro en un <strong>design system comunitario</strong> construido con React,
+            TypeScript, Tailwind CSS v4 y Radix UI primitives. El objetivo es aprender y
+            practicar cómo se construye una librería de componentes real: tokens, arquitectura,
+            documentación viva, tests, accesibilidad y revisión visual.
+          </p>
+
+          <p class="folder-text"><strong>Contribuciones hasta ahora:</strong></p>
+          <ul class="freelance-list">
+            <li>Desarrollé el componente <strong>Select</strong> con CVA, Radix UI y accesibilidad completa</li>
+            <li>Ajusté la configuración de <strong>Biome</strong> para alinearla con el estándar del proyecto</li>
+            <li>Configuré el <strong>CI/CD</strong> para garantizar compatibilidad multiplataforma (SO)</li>
+          </ul>
+
+          <p class="folder-text">
+            Proyecto open source en <a href="https://github.com/Stack-and-Flow/design-system" target="_blank" rel="noopener noreferrer" class="folder-link">github.com/Stack-and-Flow/design-system</a>.
+          </p>
         </div>
       }
     </div>
