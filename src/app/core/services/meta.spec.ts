@@ -1,7 +1,7 @@
 import { describe, it, expect, beforeEach, vi } from 'vitest';
 import { TestBed } from '@angular/core/testing';
 import { Title, Meta } from '@angular/platform-browser';
-import { MetaService, PageMeta } from './meta.service';
+import { MetaService } from './meta.service';
 
 describe('MetaService', () => {
   let service: MetaService;

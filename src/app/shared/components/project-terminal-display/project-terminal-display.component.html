@@ -69,7 +69,7 @@ Deployment Date: {{ project().deploymentDate }}</span>
 
     @if (project().demoUrl) {
       <a [href]="project().demoUrl" target="_blank" rel="noopener noreferrer" class="github-minimal-link demo-link" style="border-color: rgba(122, 162, 247, 0.5); background-color: rgba(122, 162, 247, 0.1); color: #7aa2f7;">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 8px;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" focusable="false" aria-hidden="true" style="margin-right: 8px;">
           <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
           <polyline points="15 3 21 3 21 9"></polyline>
           <line x1="10" y1="14" x2="21" y2="3"></line>
@@ -82,7 +82,7 @@ Deployment Date: {{ project().deploymentDate }}</span>
 
 <span class="section-title">Vista Previa:</span>
 @if (project().terminalGifUrl) {
-  <div class="video-wrapper" (click)="openVideoModal()">
+  <div class="video-wrapper">
     <video 
       [src]="project().terminalGifUrl" 
       class="project-gif" 
@@ -91,12 +91,9 @@ Deployment Date: {{ project().deploymentDate }}</span>
       [muted]="true" 
       playsinline
       preload="none"
-      aria-label="Video de demostración de la interfaz"
-      tabindex="0"
-      role="button"
-      [attr.aria-expanded]="isModalOpen()">
+      aria-label="Video demostración del proyecto {{ project().title }}">
     </video>
-    <span class="video-hint">⬆️ Click para ampliar ⬆️</span>
+    <button type="button" class="video-expand-btn" (click)="openVideoModal()" aria-haspopup="dialog">Ampliar video</button>
   </div>
 } @else {
   <span class="no-gif-message">No hay vista previa disponible.</span>
@@ -124,34 +121,24 @@ Deployment Date: {{ project().deploymentDate }}</span>
 </article>
 
 @if (isModalOpen() && project().terminalGifUrl) {
-  <div 
-    class="video-modal-backdrop" 
+  <div
+    class="video-modal-backdrop"
     (click)="onBackdropClick($event)"
+    (keydown.escape)="closeVideoModal()"
     role="dialog"
     aria-modal="true"
-    aria-labelledby="modal-title">
-    <div class="video-modal-container">
-      <div class="modal-terminal-bar">
-        <div class="modal-controls">
-          <span class="terminal-button close" (click)="closeVideoModal()" role="button" tabindex="0" aria-label="Cerrar modal"></span>
-          <span class="terminal-button minimize" aria-hidden="true"></span>
-          <span class="terminal-button maximize" aria-hidden="true"></span>
-        </div>
-        <span class="modal-title" id="modal-title">{{ project().title }} - Vista Previa</span>
-        <button class="modal-close-btn" (click)="closeVideoModal()">ESC</button>
-      </div>
-      <div class="modal-video-wrapper">
-        <video 
-          [src]="project().terminalGifUrl" 
-          autoplay 
-          loop 
-          [muted]="true" 
-          playsinline
-          aria-label="Video de demostración en pantalla completa">
-        </video>
-        <span class="modal-hint">Click fuera del video o presiona ESC para cerrar</span>
-      </div>
+    aria-label="Video en pantalla completa - {{ project().title }}"
+  >
+    <div class="modal-content">
+      <video
+        [src]="project().terminalGifUrl"
+        autoplay
+        loop
+        [muted]="true"
+        playsinline
+        aria-label="Video de demostración en pantalla completa"
+      ></video>
+      <button class="modal-close-btn" (click)="closeVideoModal()">Cerrar vista</button>
     </div>
   </div>
 }
-
