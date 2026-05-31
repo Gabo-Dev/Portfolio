@@ -24,6 +24,19 @@
   --text-color-light: #f0f0f0;
   --dark-bg: #1a1a1a;
 
+  /* Elevation system */
+  --elevation-base: 0 1px 3px hsla(30, 8%, 20%, 0.08);
+  --elevation-medium: 0 4px 12px hsla(30, 8%, 20%, 0.12);
+  --elevation-high: 0 8px 24px hsla(30, 8%, 20%, 0.16);
+
+  /* Text hierarchy */
+  --text-tertiary: #999;
+
+  /* Section zoning backgrounds */
+  --section-bg-1: hsl(30, 8%, 97%);
+  --section-bg-2: hsl(30, 12%, 94%);
+  --section-bg-3: hsl(30, 6%, 92%);
+
   --font-family-body: 'Roboto Mono', monospace;
   --font-family-headings: 'Noto Serif JP', serif;
 
