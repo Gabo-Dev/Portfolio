@@ -1,5 +1,5 @@
 <main class="about-container" aria-labelledby="about-heading">
-  <section class="content-grid" aria-label="Presentación del desarrollador">
+  <section class="content-grid section-bg-1" aria-label="Presentación del desarrollador">
     <div class="main-column">
       <article class="profile-card" aria-label="Perfil de Jonathan Orna">
         <figure class="profile-photo-wrapper">
@@ -11,107 +11,20 @@
             priority
             class="profile-photo"
           />
+          <span class="status-dot" aria-hidden="true"></span>
         </figure>
         <div class="profile-info">
-          <h1 id="about-heading" class="profile-name">Jonathan Orna Ponce</h1>
-          
-          <div class="tech-stack-section">
-            <h2 class="section-title">Stack Tecnológico</h2>
-            <ul class="skills-chips" role="list" aria-label="Tecnologías principales">
-              <li class="chip">JavaScript</li>
-              <li class="chip">TypeScript</li>
-              <li class="chip">React</li>
-              <li class="chip">Angular</li>
-              <li class="chip">Electron</li>
-              <li class="chip">SQL</li>
-              <li class="chip">Java</li>
-              <li class="chip">Supabase</li>
-            </ul>
+          <div class="profile-identity">
+            <h1 id="about-heading" class="profile-name">Jonathan Orna Ponce</h1>
+            <p class="profile-role">Software Engineer | Frontend Developer</p>
           </div>
-
-          <div class="tech-skills-section">
-            <h2 class="section-title">Habilidades Técnicas</h2>
-            <ul class="skills-chips" role="list" aria-label="Habilidades técnicas">
-              <li class="chip">Investigación</li>
-              <li class="chip">Integración de IA</li>
-              <li class="chip">Arquitectura</li>
-              <li class="chip">Testing</li>
-              <li class="chip">Optimización</li>
-              <li class="chip">DevOps</li>
-            </ul>
-          </div>
+          <p class="profile-description">
+            Mi camino en el desarrollo comenzó por curiosidad y se convirtió en vocación.
+            Cada proyecto me permite crecer como ingeniero y acercarme a mi objetivo profesional:
+            convertirme en arquitecto de software y diseñar sistemas sólidos, escalables y sostenibles.
+          </p>
         </div>
       </article>
-    </div>
-
-    <div class="sidebar-column">
-      <div class="tabs-container" role="tablist" aria-label="Secciones de información">
-        <button
-          class="tab-btn"
-          role="tab"
-          [class.active]="activeTab() === 'experience'"
-          [attr.aria-selected]="activeTab() === 'experience'"
-          aria-controls="sidebar-panel"
-          (click)="activeTab.set('experience')"
-        >
-          Experiencia
-        </button>
-        <button
-          class="tab-btn"
-          role="tab"
-          [class.active]="activeTab() === 'background'"
-          [attr.aria-selected]="activeTab() === 'background'"
-          aria-controls="sidebar-panel"
-          (click)="activeTab.set('background')"
-        >
-          Background
-        </button>
-      </div>
-
-      <aside
-        class="neumorphic-card info-card"
-        id="sidebar-panel"
-        role="tabpanel"
-        [attr.aria-label]="activeTab() === 'experience' ? 'Experiecia y Logros' : 'Background'"
-      >
-        @if (activeTab() === 'experience') {
-          <h2 class="card-title">Experiencia & Logros</h2>
-          <ul class="info-list" role="list">
-            <li class="info-item">
-              <strong> Frontend Freelance</strong>
-              <span>(Marzo - Dic 2025)</span>
-            </li>
-            <li class="info-item">
-              <strong>Camarero en Grupo Abades</strong>
-              <span>(Alhama de Murcia). Gestión de estrés y trato al cliente.</span>
-            </li>
-            <li class="info-item">
-              <strong> IBM Front End with React</strong>
-              <span>(edX).</span>
-            </li>
-            <li class="info-item">
-              <strong> AI Fluency Foundations</strong>
-              <span>(Anthropic).</span>
-            </li>
-          </ul>
-        } @else {
-          <h2 class="card-title">Background</h2>
-          <ul class="info-list" role="list">
-            <li class="info-item">
-              <strong>🎓 Formación</strong>
-              <span>Ing. del Software (UHU) — A 2 asignaturas + TFG.</span>
-            </li>
-            <li class="info-item">
-              <strong>🌍 Disponibilidad</strong>
-              <span>Total. Abierto a reubicación en España o trabajo remoto.</span>
-            </li>
-            <li class="info-item">
-              <strong>🗣️ Idiomas</strong>
-              <span>Inglés conversacional y técnico (Nivel B2 práctico).</span>
-            </li>
-          </ul>
-        }
-      </aside>
     </div>
   </section>
 
@@ -120,22 +33,22 @@
       <button
         class="folder-tab"
         role="tab"
-        [class.active]="folderTab() === 'enfoque'"
-        [attr.aria-selected]="folderTab() === 'enfoque'"
+        [class.active]="folderTab() === 'perfil'"
+        [attr.aria-selected]="folderTab() === 'perfil'"
         aria-controls="folder-panel"
-        (click)="folderTab.set('enfoque')"
+        (click)="folderTab.set('perfil')"
       >
-        Enfoque
+        Perfil
       </button>
       <button
         class="folder-tab"
         role="tab"
-        [class.active]="folderTab() === 'historia'"
-        [attr.aria-selected]="folderTab() === 'historia'"
+        [class.active]="folderTab() === 'stack'"
+        [attr.aria-selected]="folderTab() === 'stack'"
         aria-controls="folder-panel"
-        (click)="folderTab.set('historia')"
+        (click)="folderTab.set('stack')"
       >
-        Historia
+        Stack
       </button>
       <button
         class="folder-tab"
@@ -168,56 +81,152 @@
         Colaboraciones
       </button>
     </div>
-    <div class="neumorphic-card folder-body" id="folder-panel" role="tabpanel">
-      @if (folderTab() === 'enfoque') {
+    <div class="neumorphic-card folder-body section-bg-2" id="folder-panel" role="tabpanel">
+      @if (folderTab() === 'perfil') {
         <div class="folder-content fade-in">
-          <h3 class="folder-content-title">Mi forma de trabajar</h3>
-          <p class="folder-text">
-            Antes de escribir una sola línea de código me siento a
-            <strong>debatir la arquitectura</strong>. Las mejores decisiones se toman en la pizarra,
-            no en el editor. Prefiero un día de diseño limpio a una semana de refactorización.
-          </p>
-          <p class="folder-text">
-            Me muevo bien bajo presión porque separo el <strong>ruido del problema real</strong>.
-            Cuando algo se rompe en producción, mi primer instinto es entender, no entrar en pánico.
-          </p>
+          <h3 class="folder-content-title">
+            <svg class="section-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            Resumen
+          </h3>
+          <ul class="skills-chips" role="list" aria-label="Resumen del perfil">
+            <li class="chip">🎓 Ing. del Software (UHU)</li>
+            <li class="chip">🌍 Disponibilidad total</li>
+            <li class="chip">🗣️ Inglés B2</li>
+            <li class="chip chip--accent">💻 Frontend Developer</li>
+          </ul>
+
+          <h3 class="folder-content-title">
+            <svg class="section-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.24C7.85 18.75 7 19.49 7 20.5"/><path d="M14 14.66V17c0 .55.47.98.97 1.24C16.15 18.75 17 19.49 17 20.5"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>
+            Experiencia & Logros
+          </h3>
+          <ul class="info-list" role="list">
+            <li class="info-item">
+              <strong>Frontend Freelance</strong>
+              <span>(Marzo - Dic 2025)</span>
+            </li>
+            <li class="info-item">
+              <strong>Camarero en Grupo Abades</strong>
+              <span>(Alhama de Murcia). Gestión de estrés y trato al cliente.</span>
+            </li>
+            <li class="info-item">
+              <strong>IBM Front End with React</strong>
+              <span>(edX).</span>
+            </li>
+            <li class="info-item">
+              <strong>AI Fluency Foundations</strong>
+              <span>(Anthropic).</span>
+            </li>
+          </ul>
+
+          <h3 class="folder-content-title">
+            <svg class="section-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"/></svg>
+            Background
+          </h3>
+          <ul class="info-list" role="list">
+            <li class="info-item">
+              <strong>🎓 Formación</strong>
+              <span>Ing. del Software (UHU) — A 2 asignaturas + TFG.</span>
+            </li>
+            <li class="info-item">
+              <strong>🌍 Disponibilidad</strong>
+              <span>Total. Abierto a reubicación en España o trabajo remoto.</span>
+            </li>
+            <li class="info-item">
+              <strong>🗣️ Idiomas</strong>
+              <span>Inglés conversacional y técnico (Nivel B2 práctico).</span>
+            </li>
+          </ul>
         </div>
       }
 
-      @if (folderTab() === 'historia') {
+      @if (folderTab() === 'stack') {
         <div class="folder-content fade-in">
-          <h3 class="folder-content-title">El valor de los cimientos</h3>
-          <p class="folder-text">
-            Trabajando como único desarrollador en una asesoría, armé una app de escritorio con
-            Electron, React y Tailwind. Cuando me pidieron pasarla a web porque los jefes se perdían
-            con la instalación, el cambio me tomó apenas unos días.
-          </p>
-          <p class="folder-text">
-            Haber mantenido la arquitectura limpia y el <strong>frontend desacoplado</strong> fue mi
-            salvavidas. Esa experiencia me enseñó más sobre diseño de software que cualquier
-            asignatura.
-          </p>
+          <div class="chip-group">
+            <span class="chip-group__label">Stack Tecnológico</span>
+            <ul class="skills-chips chip-group__chips" role="list" aria-label="Tecnologías principales">
+              <li class="chip chip--accent">
+                JavaScript
+                <span class="skill-dots" role="img" aria-label="Nivel 5 de 5">
+                  <span class="dot--filled">●</span><span class="dot--filled">●</span><span class="dot--filled">●</span><span class="dot--filled">●</span><span class="dot--filled">●</span>
+                </span>
+              </li>
+              <li class="chip chip--accent">
+                TypeScript
+                <span class="skill-dots" role="img" aria-label="Nivel 5 de 5">
+                  <span class="dot--filled">●</span><span class="dot--filled">●</span><span class="dot--filled">●</span><span class="dot--filled">●</span><span class="dot--filled">●</span>
+                </span>
+              </li>
+              <li class="chip chip--accent">
+                Angular
+                <span class="skill-dots" role="img" aria-label="Nivel 4 de 5">
+                  <span class="dot--filled">●</span><span class="dot--filled">●</span><span class="dot--filled">●</span><span class="dot--filled">●</span><span class="dot--empty">○</span>
+                </span>
+              </li>
+              <li class="chip chip--accent">
+                React
+                <span class="skill-dots" role="img" aria-label="Nivel 4 de 5">
+                  <span class="dot--filled">●</span><span class="dot--filled">●</span><span class="dot--filled">●</span><span class="dot--filled">●</span><span class="dot--empty">○</span>
+                </span>
+              </li>
+              <li class="chip">
+                Electron
+                <span class="skill-dots" role="img" aria-label="Nivel 3 de 5">
+                  <span class="dot--filled">●</span><span class="dot--filled">●</span><span class="dot--filled">●</span><span class="dot--empty">○</span><span class="dot--empty">○</span>
+                </span>
+              </li>
+              <li class="chip">
+                SQL
+                <span class="skill-dots" role="img" aria-label="Nivel 3 de 5">
+                  <span class="dot--filled">●</span><span class="dot--filled">●</span><span class="dot--filled">●</span><span class="dot--empty">○</span><span class="dot--empty">○</span>
+                </span>
+              </li>
+              <li class="chip">
+                Java
+                <span class="skill-dots" role="img" aria-label="Nivel 3 de 5">
+                  <span class="dot--filled">●</span><span class="dot--filled">●</span><span class="dot--filled">●</span><span class="dot--empty">○</span><span class="dot--empty">○</span>
+                </span>
+              </li>
+              <li class="chip">
+                Supabase
+                <span class="skill-dots" role="img" aria-label="Nivel 3 de 5">
+                  <span class="dot--filled">●</span><span class="dot--filled">●</span><span class="dot--filled">●</span><span class="dot--empty">○</span><span class="dot--empty">○</span>
+                </span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="chip-group">
+            <span class="chip-group__label">Habilidades Técnicas</span>
+            <ul class="skills-chips chip-group__chips" role="list" aria-label="Habilidades técnicas">
+              <li class="chip">Investigación</li>
+              <li class="chip">Integración de IA</li>
+              <li class="chip">Arquitectura</li>
+              <li class="chip">Testing</li>
+              <li class="chip">Optimización</li>
+              <li class="chip">DevOps</li>
+            </ul>
+          </div>
         </div>
       }
 
       @if (folderTab() === 'valores') {
         <div class="folder-content fade-in">
-          <h3 class="folder-content-title">Lo que no negocio</h3>
+          <h3 class="folder-content-title">
+            <svg class="section-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            Lo que no negocio
+          </h3>
           <ul class="info-list" role="list">
             <li class="info-item">
-              <strong> Arquitectura primero</strong>
+              <strong>Arquitectura primero</strong>
               <span>El código rápido que no escala no es una solución, es deuda técnica.</span>
             </li>
             <li class="info-item">
-              <strong> Comunicación directa</strong>
+              <strong>Comunicación directa</strong>
               <span>Prefiero un "no funciona así" a tiempo que un "sí" que bloquea al equipo.</span>
             </li>
             <li class="info-item">
-              <strong> Aprendizaje continuo</strong>
-              <span
-                >Cada tecnología que aprendo la enseño. Enseñar es la mejor forma de
-                consolidar.</span
-              >
+              <strong>Aprendizaje continuo</strong>
+              <span>Cada tecnología que aprendo la enseño. Enseñar es la mejor forma de consolidar.</span>
             </li>
           </ul>
         </div>
@@ -225,7 +234,10 @@
 
       @if (folderTab() === 'freelance') {
         <div class="folder-content fade-in">
-          <h3 class="folder-content-title">Desarrollador de Software (Freelance)</h3>
+          <h3 class="folder-content-title">
+            <svg class="section-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+            Desarrollador de Software (Freelance)
+          </h3>
 
           <div class="freelance-metadata">
             <span class="meta-chip"><strong>Cliente:</strong> Asesoría de nutrición y entrenamiento personal</span>
@@ -247,48 +259,56 @@
             <li>Proponía herramientas concretas para cada problema</li>
           </ul>
 
-          <h4 class="folder-subtitle">Proyectos</h4>
+          <h4 class="folder-subtitle">
+            <svg class="section-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
+            Proyectos
+          </h4>
 
-          <div class="project-block">
-            <div class="project-header">
-              <span class="project-name">Landing Page — Webflow</span>
-              <span class="project-metric">+20% leads</span>
+          <div class="grid-2-col">
+            <div class="project-block">
+              <div class="project-header">
+                <span class="project-name">Landing Page — Webflow</span>
+                <span class="project-metric">+20% leads</span>
+              </div>
+              <p class="folder-text">
+                Primera toma de contacto. Captábamos clientes desde los CTA y redes sociales,
+                asegurando el embudo de captación.
+              </p>
             </div>
-            <p class="folder-text">
-              Primera toma de contacto. Captábamos clientes desde los CTA y redes sociales,
-              asegurando el embudo de captación.
-            </p>
-          </div>
 
-          <div class="project-block">
-            <div class="project-header">
-              <span class="project-name">App escritorio — Electron</span>
-              <span class="project-tag">MVP</span>
+            <div class="project-block">
+              <div class="project-header">
+                <span class="project-name">App escritorio — Electron</span>
+                <span class="project-tag">MVP</span>
+              </div>
+              <p class="folder-text">
+                Construí un MVP de escritorio para validar la solución internamente. Al funcionar,
+                los co-founders pidieron llevarlo a web. La migración fue cuestión de días porque
+                el frontend ya estaba <strong>desacoplado de la lógica de negocio</strong>.
+              </p>
             </div>
-            <p class="folder-text">
-              Construí un MVP de escritorio para validar la solución internamente. Al funcionar,
-              los co-founders pidieron llevarlo a web. La migración fue cuestión de días porque
-              el frontend ya estaba <strong>desacoplado de la lógica de negocio</strong>.
-            </p>
-          </div>
 
-          <div class="project-block">
-            <div class="project-header">
-              <span class="project-name">Dashboard web — Vercel + React + Supabase</span>
-              <span class="project-metric">-60% tareas admin</span>
+            <div class="project-block">
+              <div class="project-header">
+                <span class="project-name">Dashboard web — Vercel + React + Supabase</span>
+                <span class="project-metric">-60% tareas admin</span>
+              </div>
+              <p class="folder-text">
+                Cada miembro gestionaba sus clientes, medidas antropométricas e historiales, y
+                también las <strong>tareas comunes del sistema</strong>: cuentas de empresa,
+                registros diarios y métricas compartidas.
+              </p>
             </div>
-            <p class="folder-text">
-              Cada miembro gestionaba sus clientes, medidas antropométricas e historiales, y
-              también las <strong>tareas comunes del sistema</strong>: cuentas de empresa,
-              registros diarios y métricas compartidas.
-            </p>
           </div>
         </div>
       }
 
       @if (folderTab() === 'actual') {
         <div class="folder-content fade-in">
-          <h4 class="folder-subtitle">Stack & Flow — Design System</h4>
+          <h4 class="folder-subtitle">
+            <svg class="section-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+            Stack & Flow — Design System
+          </h4>
 
           <div class="freelance-metadata">
             <span class="meta-chip status-active">En activo</span>
