@@ -1,0 +1,36 @@
+<div class="folder-content fade-in">
+  @for (collab of collaborations; track collab.title.text) {
+    <h4 class="folder-subtitle">
+      <app-section-icon [iconName]="collab.title.iconName" />
+      {{ collab.title.text }}
+    </h4>
+
+    <div class="freelance-metadata">
+      @for (meta of metadata; track meta.label) {
+        <app-meta-chip
+          [label]="meta.label"
+          [value]="meta.value"
+          [variant]="meta.variant ?? 'default'"
+        />
+      }
+    </div>
+
+    <p class="folder-text">
+      Colaboro en un <strong>design system comunitario</strong> construido con React,
+      TypeScript, Tailwind CSS v4 y Radix UI primitives. El objetivo es aprender y
+      practicar cómo se construye una librería de componentes real: tokens, arquitectura,
+      documentación viva, tests, accesibilidad y revisión visual.
+    </p>
+
+    <p class="folder-text"><strong>Contribuciones hasta ahora:</strong></p>
+    <ul class="freelance-list">
+      <li>Desarrollé el componente <strong>Select</strong> con CVA, Radix UI y accesibilidad completa</li>
+      <li>Ajusté la configuración de <strong>Biome</strong> para alinearla con el estándar del proyecto</li>
+      <li>Configuré el <strong>CI/CD</strong> para garantizar compatibilidad multiplataforma (SO)</li>
+    </ul>
+
+    <p class="folder-text">
+      Proyecto open source en <a href="https://github.com/Stack-and-Flow/design-system" target="_blank" rel="noopener noreferrer" class="folder-link">github.com/Stack-and-Flow/design-system</a>.
+    </p>
+  }
+</div>

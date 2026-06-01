@@ -1,0 +1,38 @@
+.folder-content-title {
+  font-size: 1.1rem;
+  color: var(--text-primary);
+  font-family: var(--font-family-headings);
+  font-weight: 700;
+  margin: 0 0 0.5rem;
+  line-height: 1.25;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--neumorphic-dark-shadow);
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+
+  &::before {
+    content: '';
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--primary-accent);
+    flex-shrink: 0;
+  }
+
+  &:first-child {
+    margin-top: 0;
+  }
+
+  @media (min-width: 768px) {
+    font-size: 1.25rem;
+    padding-bottom: 0.75rem;
+  }
+}
+
+.title-text {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+}

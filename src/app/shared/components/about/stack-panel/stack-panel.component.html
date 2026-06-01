@@ -1,0 +1,13 @@
+<div class="folder-content fade-in">
+  @for (group of stackGroups; track group.label) {
+    <app-chip-group [label]="group.label">
+      @for (chip of group.chips; track chip.name) {
+        <app-skill-chip
+          [name]="chip.name"
+          [variant]="chip.variant ?? 'default'"
+          [level]="chip.level ?? 0"
+        />
+      }
+    </app-chip-group>
+  }
+</div>
