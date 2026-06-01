@@ -77,6 +77,7 @@ export const PERFIL_SECTIONS = {
     items: [
       { label: 'Frontend Freelance', value: 'Marzo - Diciembre 2025. Startup de nutrición y entrenamiento.' },
       { label: 'Colaboración activa', value: 'Stack & Flow Design System — contribuyo a un design system open source.' },
+      { label: 'Hostelería', value: 'Camarero durante 3 años. Atención al cliente, trabajo en equipo y gestión bajo presión.' },
     ] as InfoItem[],
   },
   busqueda: {

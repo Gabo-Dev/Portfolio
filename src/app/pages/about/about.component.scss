@@ -55,6 +55,11 @@
 
 .folder-body {
   width: 100%;
+  padding: 1.5rem;
+
+  @media (min-width: 768px) {
+    padding: 2rem;
+  }
 }
 
 .folder-content {
