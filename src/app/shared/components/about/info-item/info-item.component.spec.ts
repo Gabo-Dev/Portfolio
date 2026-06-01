@@ -8,12 +8,13 @@ import { InfoItemComponent } from './info-item.component';
   standalone: true,
   imports: [InfoItemComponent],
   template: `
-    <app-info-item [label]="label" [value]="value">Fallback content</app-info-item>
+    <app-info-item [label]="label" [value]="value" [body]="body">Fallback content</app-info-item>
   `,
 })
 class TestWrapperComponent {
   label = 'Test Label';
   value: string | undefined = 'Test Value';
+  body: string | undefined = 'Test body description';
 }
 
 describe('InfoItemComponent', () => {
@@ -29,17 +30,18 @@ describe('InfoItemComponent', () => {
     expect(fixture.componentInstance).toBeTruthy();
   });
 
-  it('should render label and value', () => {
+  it('should render label, date and body', () => {
     fixture.detectChanges();
     expect(fixture.nativeElement.querySelector('.info-label')?.textContent).toContain('Test Label');
-    expect(fixture.nativeElement.querySelector('.info-value')?.textContent).toContain('Test Value');
+    expect(fixture.nativeElement.querySelector('.info-date')?.textContent).toContain('Test Value');
+    expect(fixture.nativeElement.querySelector('.info-body')?.textContent).toContain('Test body description');
   });
 
-  it('should render projected content when value is undefined', () => {
-    fixture.componentInstance.value = undefined;
+  it('should render projected content when body is undefined', () => {
+    fixture.componentInstance.body = undefined;
     fixture.detectChanges();
 
-    const valueEl = fixture.nativeElement.querySelector('.info-value');
-    expect(valueEl?.textContent).toContain('Fallback content');
+    const bodyEl = fixture.nativeElement.querySelector('.info-body');
+    expect(bodyEl).toBeNull();
   });
 });

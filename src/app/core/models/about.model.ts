@@ -28,6 +28,7 @@ export interface ChipGroup {
 export interface InfoItem {
   label: string;
   value?: string;
+  body?: string;
 }
 
 export interface ProjectBlock {

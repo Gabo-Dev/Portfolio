@@ -75,10 +75,22 @@ export const PERFIL_SECTIONS = {
     title: 'Experiencia',
     iconName: 'briefcase',
     items: [
-      { label: 'Frontend Freelance', value: 'Marzo - Diciembre 2025. Startup de nutrición y entrenamiento.' },
-      { label: 'Colaboración activa', value: 'Stack & Flow Design System — contribuyo a un design system open source.' },
-      { label: 'Hostelería', value: 'Camarero durante 3 años. Atención al cliente, trabajo en equipo y gestión bajo presión.' },
-    ] as InfoItem[],
+      {
+        label: 'Desarrollador de Software — Freelance',
+        value: 'Marzo - Diciembre 2025',
+        body: 'Desarrollador de software, web y automatizaciones en asesoría de nutrición y entrenamiento.',
+      },
+      {
+        label: 'Dev Junior — Stack & Flow',
+        value: 'Mayo 2026 - Actualidad',
+        body: 'Colaborador en proyectos open source.',
+      },
+      {
+        label: 'Hostelería — Grupo Abades',
+        value: 'Julio - Septiembre 2022',
+        body: 'Camarero en el Grupo Abades. Atención al cliente, manejo de plataforma de cobro y trabajo en equipo.',
+      },
+    ],
   },
   busqueda: {
     title: 'Qué busco',

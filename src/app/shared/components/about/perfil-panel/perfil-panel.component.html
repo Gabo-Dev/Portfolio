@@ -35,7 +35,7 @@
       />
       <ul class="info-list" role="list">
         @for (item of sections.experiencia.items; track item.label) {
-          <app-info-item [label]="item.label" [value]="item.value" />
+          <app-info-item [label]="item.label" [value]="item.value" [body]="item.body" />
         }
       </ul>
     </section>
@@ -50,15 +50,6 @@
           <p>{{ paragraph }}</p>
         }
       </div>
-
-      <!-- Highlights con chips para destacar info clave -->
-      <div class="highlight-chips">
-        <app-meta-chip label="Disponible" variant="active" />
-        <app-meta-chip label="Remoto" />
-        <app-meta-chip label="Reubicación" />
-        <app-meta-chip label="Inglés B2" />
-      </div>
-
       <ul class="info-list" role="list">
         @for (item of sections.busqueda.items; track item.label) {
           <app-info-item [label]="item.label" [value]="item.value" />

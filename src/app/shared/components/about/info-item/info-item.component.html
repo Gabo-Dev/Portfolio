@@ -1,10 +1,13 @@
 <li class="info-item">
-  <strong class="info-label">{{ label() }}</strong>
-  @if (value(); as v) {
-    <span class="info-value">{{ v }}</span>
+  <div class="info-header">
+    <strong class="info-label">{{ label() }}</strong>
+    @if (value(); as v) {
+      <span class="info-date">{{ v }}</span>
+    }
+  </div>
+  @if (body(); as b) {
+    <p class="info-body">{{ b }}</p>
   } @else {
-    <span class="info-value">
-      <ng-content></ng-content>
-    </span>
+    <ng-content></ng-content>
   }
 </li>

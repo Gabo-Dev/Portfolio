@@ -11,4 +11,5 @@ import { Component, input, ChangeDetectionStrategy } from '@angular/core';
 export class InfoItemComponent {
   label = input.required<string>();
   value = input<string | undefined>(undefined);
+  body = input<string | undefined>(undefined);
 }
