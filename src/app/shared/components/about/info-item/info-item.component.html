@@ -1,0 +1,10 @@
+<li class="info-item">
+  <strong class="info-label">{{ label() }}</strong>
+  @if (value(); as v) {
+    <span class="info-value">{{ v }}</span>
+  } @else {
+    <span class="info-value">
+      <ng-content></ng-content>
+    </span>
+  }
+</li>
