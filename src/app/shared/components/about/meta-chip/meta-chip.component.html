@@ -1,0 +1,9 @@
+<span
+  class="meta-chip"
+  [class.status-active]="variant() === 'active'"
+>
+  <span class="meta-chip__label">{{ label() }}</span>
+  @if (value(); as v) {
+    <span class="meta-chip__value">{{ v }}</span>
+  }
+</span>

@@ -1,0 +1,39 @@
+.meta-chip {
+  padding: 0.25rem 0.65rem;
+  font-size: 0.7rem;
+  font-family: var(--font-family-body);
+  font-weight: 500;
+  color: var(--text-secondary);
+  border-radius: 999px;
+  background: var(--neumorphic-background);
+  box-shadow: var(--neumorphic-shadow-convex-sm);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  white-space: nowrap;
+
+  &.status-active {
+    background: rgba(34, 197, 94, 0.12);
+    color: #22c55e;
+    font-weight: 700;
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  @media (min-width: 768px) {
+    padding: 0.25rem 0.75rem;
+    font-size: 0.75rem;
+  }
+}
+
+.meta-chip__label {
+  strong {
+    color: var(--text-primary);
+    font-weight: 700;
+  }
+}
+
+.meta-chip__value {
+  color: inherit;
+}
