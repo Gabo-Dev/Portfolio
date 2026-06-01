@@ -1,7 +1,7 @@
 <main class="about-container" aria-labelledby="about-heading">
   <section class="content-grid section-bg-1" aria-label="Presentación del desarrollador">
     <div class="main-column">
-      <article class="profile-card" aria-label="Perfil de Jonathan Orna">
+      <article class="profile-card elevation-base" aria-label="Perfil de Jonathan Orna">
         <figure class="profile-photo-wrapper">
           <img
             ngSrc="v1773229104/fotoPerfil_dryi8z.png"
@@ -28,7 +28,7 @@
     </div>
   </section>
 
-  <section class="folder-section" aria-label="Más sobre Jonathan">
+  <section class="folder-section section-bg-3" aria-label="Más sobre Jonathan">
     <div class="folder-tabs" role="tablist" aria-label="Secciones del folder">
       <button
         class="folder-tab"
@@ -81,61 +81,66 @@
         Colaboraciones
       </button>
     </div>
-    <div class="neumorphic-card folder-body section-bg-2" id="folder-panel" role="tabpanel">
+    <div class="neumorphic-card folder-body section-bg-2 elevation-medium" id="folder-panel" role="tabpanel">
       @if (folderTab() === 'perfil') {
         <div class="folder-content fade-in">
-          <h3 class="folder-content-title">
-            <svg class="section-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-            Resumen
-          </h3>
-          <ul class="skills-chips" role="list" aria-label="Resumen del perfil">
-            <li class="chip">🎓 Ing. del Software (UHU)</li>
-            <li class="chip">🌍 Disponibilidad total</li>
-            <li class="chip">🗣️ Inglés B2</li>
-            <li class="chip chip--accent">💻 Frontend Developer</li>
-          </ul>
+          <div class="grid-2-col">
+            <div class="profile-column">
+              <h3 class="folder-content-title">
+                <svg class="section-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"/></svg>
+                Formación Académica
+              </h3>
+              <ul class="info-list" role="list">
+                <li class="info-item">
+                  <strong>Ing. del Software (UHU)</strong>
+                  <span>A 2 asignaturas + TFG.</span>
+                </li>
+              </ul>
 
-          <h3 class="folder-content-title">
-            <svg class="section-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.24C7.85 18.75 7 19.49 7 20.5"/><path d="M14 14.66V17c0 .55.47.98.97 1.24C16.15 18.75 17 19.49 17 20.5"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>
-            Experiencia & Logros
-          </h3>
-          <ul class="info-list" role="list">
-            <li class="info-item">
-              <strong>Frontend Freelance</strong>
-              <span>(Marzo - Dic 2025)</span>
-            </li>
-            <li class="info-item">
-              <strong>Camarero en Grupo Abades</strong>
-              <span>(Alhama de Murcia). Gestión de estrés y trato al cliente.</span>
-            </li>
-            <li class="info-item">
-              <strong>IBM Front End with React</strong>
-              <span>(edX).</span>
-            </li>
-            <li class="info-item">
-              <strong>AI Fluency Foundations</strong>
-              <span>(Anthropic).</span>
-            </li>
-          </ul>
+              <h3 class="folder-content-title">
+                <svg class="section-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.24C7.85 18.75 7 19.49 7 20.5"/><path d="M14 14.66V17c0 .55.47.98.97 1.24C16.15 18.75 17 19.49 17 20.5"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>
+                Certificaciones
+              </h3>
+              <ul class="info-list" role="list">
+                <li class="info-item">
+                  <strong>IBM Front End with React</strong>
+                  <span>(edX).</span>
+                </li>
+                <li class="info-item">
+                  <strong>AI Fluency Foundations</strong>
+                  <span>(Anthropic).</span>
+                </li>
+              </ul>
+            </div>
 
-          <h3 class="folder-content-title">
-            <svg class="section-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"/></svg>
-            Background
-          </h3>
-          <ul class="info-list" role="list">
-            <li class="info-item">
-              <strong>🎓 Formación</strong>
-              <span>Ing. del Software (UHU) — A 2 asignaturas + TFG.</span>
-            </li>
-            <li class="info-item">
-              <strong>🌍 Disponibilidad</strong>
-              <span>Total. Abierto a reubicación en España o trabajo remoto.</span>
-            </li>
-            <li class="info-item">
-              <strong>🗣️ Idiomas</strong>
-              <span>Inglés conversacional y técnico (Nivel B2 práctico).</span>
-            </li>
-          </ul>
+            <div class="profile-column">
+              <h3 class="folder-content-title">
+                <svg class="section-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+                Experiencia
+              </h3>
+              <ul class="info-list" role="list">
+                <li class="info-item">
+                  <strong>Frontend Freelance</strong>
+                  <span>(Marzo - Dic 2025)</span>
+                </li>
+              </ul>
+
+              <h3 class="folder-content-title">
+                <svg class="section-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                Datos Clave
+              </h3>
+              <ul class="info-list" role="list">
+                <li class="info-item">
+                  <strong>Disponibilidad</strong>
+                  <span>Total. Abierto a reubicación en España o trabajo remoto.</span>
+                </li>
+                <li class="info-item">
+                  <strong>Idiomas</strong>
+                  <span>Inglés conversacional y técnico (Nivel B2 práctico).</span>
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
       }
 
@@ -156,13 +161,13 @@
                   <span class="dot--filled">●</span><span class="dot--filled">●</span><span class="dot--filled">●</span><span class="dot--filled">●</span><span class="dot--filled">●</span>
                 </span>
               </li>
-              <li class="chip chip--accent">
+              <li class="chip chip--wood">
                 Angular
                 <span class="skill-dots" role="img" aria-label="Nivel 4 de 5">
                   <span class="dot--filled">●</span><span class="dot--filled">●</span><span class="dot--filled">●</span><span class="dot--filled">●</span><span class="dot--empty">○</span>
                 </span>
               </li>
-              <li class="chip chip--accent">
+              <li class="chip chip--wood">
                 React
                 <span class="skill-dots" role="img" aria-label="Nivel 4 de 5">
                   <span class="dot--filled">●</span><span class="dot--filled">●</span><span class="dot--filled">●</span><span class="dot--filled">●</span><span class="dot--empty">○</span>
@@ -264,7 +269,7 @@
             Proyectos
           </h4>
 
-          <div class="grid-2-col">
+          <div class="grid-2-col grid-3-col">
             <div class="project-block">
               <div class="project-header">
                 <span class="project-name">Landing Page — Webflow</span>
@@ -288,7 +293,7 @@
               </p>
             </div>
 
-            <div class="project-block">
+            <div class="project-block elevation-high">
               <div class="project-header">
                 <span class="project-name">Dashboard web — Vercel + React + Supabase</span>
                 <span class="project-metric">-60% tareas admin</span>

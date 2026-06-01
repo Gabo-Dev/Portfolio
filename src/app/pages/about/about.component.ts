@@ -29,8 +29,7 @@ export class AboutComponent implements OnInit, OnDestroy {
 
   readonly developerName = signal('Gabo');
   readonly experienceYears = signal(3);
-  readonly activeTab = signal<'background' | 'experience'>('experience');
-  readonly folderTab = signal<'enfoque' | 'historia' | 'valores' | 'freelance' | 'actual'>('enfoque');
+  readonly folderTab = signal<'perfil' | 'stack' | 'valores' | 'freelance' | 'actual'>('perfil');
   readonly dynamicTitle = computed(
     () => `Sobre ${this.developerName()} - ${this.experienceYears()} Años de Experiencia`,
   );
