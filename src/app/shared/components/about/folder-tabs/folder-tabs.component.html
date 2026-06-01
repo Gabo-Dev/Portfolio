@@ -1,0 +1,19 @@
+<div class="folder-tabs-wrapper">
+  <nav class="folder-tabs" role="tablist" aria-label="Secciones del folder">
+    @for (tab of tabs(); track tab.id) {
+      <button
+        class="folder-tab"
+        role="tab"
+        [class.active]="activeTab() === tab.id"
+        [attr.aria-selected]="activeTab() === tab.id"
+        [attr.aria-controls]="'folder-panel-' + tab.id"
+        (click)="selectTab(tab.id)"
+      >
+        {{ tab.label }}
+      </button>
+    }
+  </nav>
+  <div class="tab-panel" role="tabpanel">
+    <ng-content></ng-content>
+  </div>
+</div>

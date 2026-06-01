@@ -1,0 +1,25 @@
+<article class="profile-card" aria-label="Perfil de {{ name() }}">
+  <figure class="profile-photo-wrapper">
+    <img
+      [ngSrc]="photoSrc()"
+      alt="Retrato de {{ name() }}"
+      width="220"
+      height="220"
+      priority
+      class="profile-photo"
+    />
+    <span
+      class="status-dot"
+      [class.status-dot--active]="statusActive()"
+      [class.status-dot--inactive]="!statusActive()"
+      aria-hidden="true"
+    ></span>
+  </figure>
+  <div class="profile-info">
+    <div class="profile-identity">
+      <h1 class="profile-name">{{ name() }}</h1>
+      <p class="profile-role">{{ role() }}</p>
+    </div>
+    <p class="profile-description">{{ description() }}</p>
+  </div>
+</article>

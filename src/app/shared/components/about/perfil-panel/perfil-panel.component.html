@@ -1,0 +1,24 @@
+<div class="folder-content fade-in">
+  <div class="grid-2-col">
+    <div class="profile-column">
+      @for (section of sections.slice(0, 2); track section.text) {
+        <app-section-title [iconName]="section.iconName" [text]="section.text" />
+        <ul class="info-list" role="list">
+          @for (item of section.items; track item.label) {
+            <app-info-item [label]="item.label" [value]="item.value" />
+          }
+        </ul>
+      }
+    </div>
+    <div class="profile-column">
+      @for (section of sections.slice(2, 4); track section.text) {
+        <app-section-title [iconName]="section.iconName" [text]="section.text" />
+        <ul class="info-list" role="list">
+          @for (item of section.items; track item.label) {
+            <app-info-item [label]="item.label" [value]="item.value" />
+          }
+        </ul>
+      }
+    </div>
+  </div>
+</div>

@@ -1,0 +1,23 @@
+.chip-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.chip-group__label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin: 0;
+}
+
+.chip-group__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}

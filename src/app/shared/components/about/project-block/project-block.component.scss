@@ -1,0 +1,90 @@
+.project-block {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  padding: 1rem;
+  border-radius: 12px;
+  background: var(--neumorphic-background);
+  box-shadow: var(--neumorphic-shadow-concave);
+  transition: box-shadow 0.25s ease;
+
+  &:hover {
+    box-shadow: var(--neumorphic-shadow-convex);
+  }
+
+  &.elevation-base {
+    box-shadow: var(--elevation-base);
+  }
+
+  &.elevation-medium {
+    box-shadow: var(--elevation-medium);
+  }
+
+  &.elevation-high {
+    box-shadow: var(--elevation-high);
+  }
+}
+
+.project-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.project-name {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  font-family: var(--font-family-headings);
+  line-height: 1.3;
+
+  @media (min-width: 768px) {
+    font-size: 1.05rem;
+  }
+}
+
+.project-metric {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #22c55e;
+  background: rgba(34, 197, 94, 0.1);
+  padding: 0.1rem 0.5rem;
+  border-radius: 999px;
+  white-space: nowrap;
+
+  @media (min-width: 768px) {
+    font-size: 0.75rem;
+    padding: 0.15rem 0.5rem;
+  }
+}
+
+.project-tag {
+  font-size: 0.65rem;
+  font-weight: 600;
+  color: var(--primary-accent);
+  background: var(--neumorphic-background);
+  box-shadow: var(--neumorphic-shadow-convex-sm);
+  padding: 0.1rem 0.5rem;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+
+  @media (min-width: 768px) {
+    font-size: 0.7rem;
+  }
+}
+
+.project-description {
+  font-size: 0.82rem;
+  line-height: 1.65;
+  color: var(--text-secondary);
+  font-family: var(--font-family-body);
+  margin: 0;
+
+  @media (min-width: 768px) {
+    font-size: 0.88rem;
+    line-height: 1.7;
+  }
+}

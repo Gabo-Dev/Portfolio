@@ -1,0 +1,17 @@
+<div
+  class="project-block"
+  [class.elevation-base]="elevation() === 'base'"
+  [class.elevation-medium]="elevation() === 'medium'"
+  [class.elevation-high]="elevation() === 'high'"
+>
+  <div class="project-header">
+    <span class="project-name">{{ name() }}</span>
+    @if (metric(); as m) {
+      <span class="project-metric">{{ m }}</span>
+    }
+    @if (tag(); as t) {
+      <span class="project-tag">{{ t }}</span>
+    }
+  </div>
+  <p class="project-description">{{ description() }}</p>
+</div>

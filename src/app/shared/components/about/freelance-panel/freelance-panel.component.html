@@ -1,0 +1,43 @@
+<div class="folder-content fade-in">
+  <app-section-title iconName="briefcase" text="Desarrollador de Software (Freelance)" />
+
+  <div class="freelance-metadata">
+    @for (meta of metadata; track meta.label) {
+      <app-meta-chip
+        [label]="meta.label"
+        [value]="meta.value"
+        [variant]="meta.variant ?? 'default'"
+      />
+    }
+  </div>
+
+  <p class="folder-text">
+    Trabajé como único desarrollador en una <strong>startup de nutrición y entrenamiento
+    personal</strong>. El equipo estaba formado por los co-founders, ambos sin perfil
+    técnico.
+  </p>
+
+  <p class="folder-text"><strong>Toma de requisitos:</strong></p>
+  <ul class="freelance-list">
+    <li>Observaba su flujo de trabajo diario</li>
+    <li>Detectaba los cuellos de botella</li>
+    <li>Proponía herramientas concretas para cada problema</li>
+  </ul>
+
+  <h4 class="folder-subtitle">
+    <app-section-icon iconName="folder" />
+    Proyectos
+  </h4>
+
+  <div class="grid-2-col grid-3-col">
+    @for (project of projects; track project.name) {
+      <app-project-block
+        [name]="project.name"
+        [description]="project.description"
+        [metric]="project.metric"
+        [tag]="project.tag"
+        [elevation]="project.elevation ?? 'base'"
+      />
+    }
+  </div>
+</div>

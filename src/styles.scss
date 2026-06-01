@@ -81,3 +81,103 @@ h6 {
   color: var(--text-primary);
   margin-top: 0;
 }
+
+/* ── Shared Utilities ── */
+
+/* Elevation system */
+.elevation-base {
+  box-shadow: var(--elevation-base);
+}
+
+.elevation-medium {
+  box-shadow: var(--elevation-medium);
+}
+
+.elevation-high {
+  box-shadow: var(--elevation-high);
+}
+
+/* Section zoning backgrounds */
+.section-bg-1 {
+  background-color: var(--section-bg-1);
+}
+
+.section-bg-2 {
+  background-color: var(--section-bg-2);
+}
+
+.section-bg-3 {
+  background-color: var(--section-bg-3);
+}
+
+/* Text hierarchy */
+.text-primary {
+  color: var(--text-primary);
+}
+
+.text-secondary {
+  color: var(--text-secondary);
+}
+
+.text-tertiary {
+  color: var(--text-tertiary);
+}
+
+/* Grid layouts */
+.grid-2-col {
+  @media (min-width: 768px) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+.grid-3-col {
+  @media (min-width: 1024px) {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+/* Animation */
+.fade-in {
+  animation: fadeIn 0.22s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Chip variants */
+.chip--wood {
+  color: var(--wood-color);
+  box-shadow: var(--neumorphic-shadow-concave-sm);
+}
+
+/* Skill dots */
+.skill-dots {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.15rem;
+  font-size: 0.7rem;
+  margin-left: 0.35rem;
+  vertical-align: middle;
+}
+
+.dot--filled {
+  color: var(--gold-accent);
+}
+
+.dot--empty {
+  color: var(--neumorphic-dark-shadow);
+}
+
+/* ── End Shared Utilities ── */

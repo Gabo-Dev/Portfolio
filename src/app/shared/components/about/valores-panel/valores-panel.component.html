@@ -1,0 +1,8 @@
+<div class="folder-content fade-in">
+  <app-section-title iconName="heart" text="Lo que no negocio" />
+  <ul class="info-list" role="list">
+    @for (item of valoresInfo; track item.label) {
+      <app-info-item [label]="item.label" [value]="item.value" />
+    }
+  </ul>
+</div>
