@@ -52,20 +52,45 @@ export const STACK_CHIP_GROUPS: ChipGroup[] = [
   },
 ];
 
-export const PERFIL_INFO: InfoItem[] = [
-  { label: 'Ing. del Software (UHU)', value: 'A 2 asignaturas + TFG.' },
-  { label: 'IBM Front End with React', value: '(edX).' },
-  { label: 'AI Fluency Foundations', value: '(Anthropic).' },
-  { label: 'Frontend Freelance', value: '(Marzo - Dic 2025)' },
-  {
-    label: 'Disponibilidad',
-    value: 'Total. Abierto a reubicación en España o trabajo remoto.',
+export const PERFIL_SECTIONS = {
+  intro: {
+    title: 'Quién soy',
+    iconName: 'user',
+    paragraphs: [
+      'Soy desarrollador frontend con formación en Ingeniería del Software. Empecé por curiosidad y descubrí que lo que realmente me motiva es construir sistemas bien pensados, no solo escribir código.',
+      'Soy autodidacta por naturaleza: cada tecnología que aprendo la profundizo por mi cuenta antes de aplicarla en proyecto. No acepto cualquier propuesta ni uso cualquier herramienta — tengo criterio para elegir el stack, el proyecto y el equipo.',
+      'Cuando uso IA, no delego a ciegas. Discerno entre qué vale automatizar y qué requiere intervención manual. No practico vibe coding: entiendo lo que escribo, reviso lo que genera la IA y tomo decisiones arquitectónicas informadas.',
+    ],
   },
-  {
-    label: 'Idiomas',
-    value: 'Inglés conversacional y técnico (Nivel B2 práctico).',
+  formacion: {
+    title: 'Formación',
+    iconName: 'graduation-cap',
+    items: [
+      { label: 'Ing. del Software (UHU)', value: 'Pendiente 2 exámenes y defensa de TFG.' },
+      { label: 'IBM Front End with React', value: 'edX — certificación profesional.' },
+      { label: 'AI Fluency Foundations', value: 'Anthropic — fundamentos de IA.' },
+    ] as InfoItem[],
   },
-];
+  experiencia: {
+    title: 'Experiencia',
+    iconName: 'briefcase',
+    items: [
+      { label: 'Frontend Freelance', value: 'Marzo - Diciembre 2025. Startup de nutrición y entrenamiento.' },
+      { label: 'Colaboración activa', value: 'Stack & Flow Design System — contribuyo a un design system open source.' },
+    ] as InfoItem[],
+  },
+  busqueda: {
+    title: 'Qué busco',
+    iconName: 'search',
+    paragraphs: [
+      'Busco un equipo donde pueda crecer como ingeniero, no solo como desarrollador. Quiero trabajar en proyectos con ambición técnica, donde la arquitectura importe tanto como el producto.',
+    ],
+    items: [
+      { label: 'Disponibilidad', value: 'Inmediata. Abierto a reubicación en España o trabajo remoto.' },
+      { label: 'Idiomas', value: 'Inglés conversacional y técnico (B2 práctico).' },
+    ] as InfoItem[],
+  },
+};
 
 export const VALORES_INFO: InfoItem[] = [
   {

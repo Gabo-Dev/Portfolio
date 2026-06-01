@@ -1,24 +1,60 @@
-<div class="folder-content fade-in">
-  <div class="grid-2-col">
-    <div class="profile-column">
-      @for (section of sections.slice(0, 2); track section.text) {
-        <app-section-title [iconName]="section.iconName" [text]="section.text" />
-        <ul class="info-list" role="list">
-          @for (item of section.items; track item.label) {
-            <app-info-item [label]="item.label" [value]="item.value" />
-          }
-        </ul>
-      }
-    </div>
-    <div class="profile-column">
-      @for (section of sections.slice(2, 4); track section.text) {
-        <app-section-title [iconName]="section.iconName" [text]="section.text" />
-        <ul class="info-list" role="list">
-          @for (item of section.items; track item.label) {
-            <app-info-item [label]="item.label" [value]="item.value" />
-          }
-        </ul>
-      }
-    </div>
+<div class="perfil-intro fade-in">
+  <!-- Columna 1: Quién soy + Formación -->
+  <div class="intro-column">
+    <section class="intro-section">
+      <app-section-title
+        [iconName]="sections.intro.iconName"
+        [text]="sections.intro.title"
+      />
+      <div class="intro-text">
+        @for (paragraph of sections.intro.paragraphs; track paragraph) {
+          <p>{{ paragraph }}</p>
+        }
+      </div>
+    </section>
+
+    <section class="intro-section">
+      <app-section-title
+        [iconName]="sections.formacion.iconName"
+        [text]="sections.formacion.title"
+      />
+      <ul class="info-list" role="list">
+        @for (item of sections.formacion.items; track item.label) {
+          <app-info-item [label]="item.label" [value]="item.value" />
+        }
+      </ul>
+    </section>
+  </div>
+
+  <!-- Columna 2: Experiencia + Qué busco -->
+  <div class="intro-column">
+    <section class="intro-section">
+      <app-section-title
+        [iconName]="sections.experiencia.iconName"
+        [text]="sections.experiencia.title"
+      />
+      <ul class="info-list" role="list">
+        @for (item of sections.experiencia.items; track item.label) {
+          <app-info-item [label]="item.label" [value]="item.value" />
+        }
+      </ul>
+    </section>
+
+    <section class="intro-section">
+      <app-section-title
+        [iconName]="sections.busqueda.iconName"
+        [text]="sections.busqueda.title"
+      />
+      <div class="intro-text">
+        @for (paragraph of sections.busqueda.paragraphs; track paragraph) {
+          <p>{{ paragraph }}</p>
+        }
+      </div>
+      <ul class="info-list" role="list">
+        @for (item of sections.busqueda.items; track item.label) {
+          <app-info-item [label]="item.label" [value]="item.value" />
+        }
+      </ul>
+    </section>
   </div>
 </div>

@@ -1,7 +1,7 @@
 import { describe, it, expect, beforeEach } from 'vitest';
 import { TestBed, ComponentFixture } from '@angular/core/testing';
 import { PerfilPanelComponent } from './perfil-panel.component';
-import { PERFIL_INFO } from '@core/constants/about-data';
+import { PERFIL_SECTIONS } from '@core/constants/about-data';
 
 describe('PerfilPanelComponent', () => {
   let component: PerfilPanelComponent;
@@ -23,8 +23,18 @@ describe('PerfilPanelComponent', () => {
     expect(titles.length).toBe(4);
   });
 
-  it('should render all info items from PERFIL_INFO', () => {
-    const items = fixture.nativeElement.querySelectorAll('app-info-item');
-    expect(items.length).toBe(PERFIL_INFO.length);
+  it('should render intro paragraphs', () => {
+    const introSection = fixture.nativeElement.querySelector('.intro-column:first-child .intro-section:first-child');
+    const paragraphs = introSection.querySelectorAll('.intro-text p');
+    expect(paragraphs.length).toBe(PERFIL_SECTIONS.intro.paragraphs.length);
+  });
+
+  it('should render formacion info items', () => {
+    const items = fixture.nativeElement.querySelectorAll('.info-list app-info-item');
+    expect(items.length).toBe(
+      PERFIL_SECTIONS.formacion.items.length +
+      PERFIL_SECTIONS.experiencia.items.length +
+      PERFIL_SECTIONS.busqueda.items.length
+    );
   });
 });
