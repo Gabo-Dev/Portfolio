@@ -1,0 +1,17 @@
+<li
+  class="chip"
+  [class.chip--accent]="variant() === 'accent'"
+  [class.chip--wood]="variant() === 'wood'"
+>
+  <span class="chip-name">{{ name() }}</span>
+  @if (level() > 0) {
+    <span class="skill-dots" role="img" [attr.aria-label]="'Nivel ' + level() + ' de ' + maxLevel">
+      @for (_ of filledDots; track $index) {
+        <span class="dot--filled">&#9679;</span>
+      }
+      @for (_ of emptyDots; track $index) {
+        <span class="dot--empty">&#9675;</span>
+      }
+    </span>
+  }
+</li>
