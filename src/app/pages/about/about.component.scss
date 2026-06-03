@@ -66,4 +66,12 @@
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+
+  &.hidden {
+    display: none;
+  }
+
+  &.visible {
+    display: flex;
+  }
 }

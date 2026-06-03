@@ -1,11 +1,7 @@
 <div class="perfil-intro fade-in">
-  <!-- Columna 1: Quién soy + Formación -->
   <div class="intro-column">
     <section class="intro-section">
-      <app-section-title
-        [iconName]="sections.intro.iconName"
-        [text]="sections.intro.title"
-      />
+      <app-section-title [iconName]="sections.intro.iconName" [text]="sections.intro.title" />
       <div class="intro-text">
         @for (paragraph of sections.intro.paragraphs; track paragraph) {
           <p>{{ paragraph }}</p>
@@ -26,7 +22,6 @@
     </section>
   </div>
 
-  <!-- Columna 2: Experiencia + Qué busco -->
   <div class="intro-column">
     <section class="intro-section">
       <app-section-title
@@ -41,10 +36,7 @@
     </section>
 
     <section class="intro-section">
-      <app-section-title
-        [iconName]="sections.busqueda.iconName"
-        [text]="sections.busqueda.title"
-      />
+      <app-section-title [iconName]="sections.busqueda.iconName" [text]="sections.busqueda.title" />
       <div class="intro-text">
         @for (paragraph of sections.busqueda.paragraphs; track paragraph) {
           <p>{{ paragraph }}</p>

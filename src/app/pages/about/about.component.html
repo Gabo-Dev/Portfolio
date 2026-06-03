@@ -14,12 +14,25 @@
   <section class="folder-section section-bg-3" aria-label="Más sobre Jonathan">
     <app-folder-tabs [tabs]="folderTabs()" [(activeTab)]="folderTab">
       <div class="neumorphic-card folder-body section-bg-2 elevation-medium" id="folder-panel" role="tabpanel">
-        @switch (folderTab()) {
-          @case ('perfil') { <app-perfil-panel class="folder-content fade-in" /> }
-          @case ('stack') { <app-stack-panel class="folder-content fade-in" /> }
-          @case ('valores') { <app-valores-panel class="folder-content fade-in" /> }
-          @case ('freelance') { <app-freelance-panel class="folder-content fade-in" /> }
-          @case ('actual') { <app-actual-panel class="folder-content fade-in" /> }
+        <!-- Perfil siempre renderizado (pre-cargado) -->
+        <app-perfil-panel
+          class="folder-content"
+          [class.visible]="folderTab() === 'perfil'"
+          [class.hidden]="folderTab() !== 'perfil'"
+        />
+
+        <!-- Otros tabs se renderizan solo cuando están activos -->
+        @if (folderTab() === 'stack') {
+          <app-stack-panel class="folder-content fade-in" />
+        }
+        @if (folderTab() === 'valores') {
+          <app-valores-panel class="folder-content fade-in" />
+        }
+        @if (folderTab() === 'freelance') {
+          <app-freelance-panel class="folder-content fade-in" />
+        }
+        @if (folderTab() === 'actual') {
+          <app-actual-panel class="folder-content fade-in" />
         }
       </div>
     </app-folder-tabs>

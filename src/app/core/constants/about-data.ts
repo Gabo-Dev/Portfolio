@@ -57,8 +57,8 @@ export const PERFIL_SECTIONS = {
     title: 'Quién soy',
     iconName: 'user',
     paragraphs: [
-      'Soy desarrollador frontend con formación en Ingeniería del Software. Empecé por curiosidad y descubrí que lo que realmente me motiva es construir sistemas bien pensados, no solo escribir código.',
-      'Soy autodidacta por naturaleza: cada tecnología que aprendo la profundizo por mi cuenta antes de aplicarla en proyecto. No acepto cualquier propuesta ni uso cualquier herramienta — tengo criterio para elegir el stack, el proyecto y el equipo.',
+      'Soy desarrollador frontend con formación en Ingeniería del Software.',
+      'Soy autodidacta por naturaleza.',
       'Cuando uso IA, no delego a ciegas. Discerno entre qué vale automatizar y qué requiere intervención manual. No practico vibe coding: entiendo lo que escribo, reviso lo que genera la IA y tomo decisiones arquitectónicas informadas.',
     ],
   },
