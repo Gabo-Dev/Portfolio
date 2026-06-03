@@ -15,11 +15,9 @@
     <app-folder-tabs [tabs]="folderTabs()" [(activeTab)]="folderTab">
       <div class="neumorphic-card folder-body section-bg-2 elevation-medium" id="folder-panel" role="tabpanel">
         <!-- Perfil siempre renderizado (pre-cargado) -->
-        <app-perfil-panel
-          class="folder-content"
-          [class.visible]="folderTab() === 'perfil'"
-          [class.hidden]="folderTab() !== 'perfil'"
-        />
+        <div class="folder-content" [class.hidden]="folderTab() !== 'perfil'">
+          <app-perfil-panel />
+        </div>
 
         <!-- Otros tabs se renderizan solo cuando están activos -->
         @if (folderTab() === 'stack') {
