@@ -1,13 +1,28 @@
 <div class="folder-content fade-in">
-  @for (group of stackGroups; track group.label) {
-    <app-chip-group [label]="group.label">
-      @for (chip of group.chips; track chip.name) {
-        <app-skill-chip
-          [name]="chip.name"
-          [variant]="chip.variant ?? 'default'"
-          [level]="chip.level ?? 0"
-        />
+
+  <p class="stack-intro">{{ intro }}</p>
+
+  <section class="stack-section">
+    <h3 class="stack-label">Stack Tecnológico</h3>
+    <div class="tech-grid">
+      @for (tech of techItems; track tech.name) {
+        <div class="tech-card">
+          <img [src]="tech.logoUrl" [alt]="tech.name" class="tech-logo" />
+          <span class="tech-name">{{ tech.name }}</span>
+        </div>
       }
-    </app-chip-group>
-  }
+    </div>
+  </section>
+
+  <section class="stack-section">
+    <h3 class="stack-label">Habilidades Técnicas</h3>
+    <div class="skills-list">
+      @for (skill of skills; track skill.name) {
+        <span class="skill-chip" [ngStyle]="{ 'background-color': skill.color }">
+          {{ skill.name }}
+        </span>
+      }
+    </div>
+  </section>
+
 </div>

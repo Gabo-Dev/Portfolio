@@ -18,7 +18,7 @@ export class MetaService {
 
   private readonly defaultMeta: PageMeta = {
     title: 'Jonathan Orna - Frontend Developer Portfolio',
-    description: 'Portfolio de Jonathan Orna, Frontend Developer especializado en Angular, React y TypeScript.',
+    description: 'Portfolio de Jonathan Orna, Frontend Developer especializado en React y TypeScript.',
     ogImage: 'https://res.cloudinary.com/da1lxmeng/image/upload/v1773229104/fotoPerfil_dryi8z.png'
   };
 
@@ -31,14 +31,14 @@ export class MetaService {
 
     this.metaService.updateTag({ property: 'og:title', content: finalMeta.ogTitle || finalMeta.title });
     this.metaService.updateTag({ property: 'og:description', content: finalMeta.ogDescription || finalMeta.description });
-    
+
     if (finalMeta.ogImage) {
       this.metaService.updateTag({ property: 'og:image', content: finalMeta.ogImage });
     }
 
     this.metaService.updateTag({ name: 'twitter:title', content: finalMeta.ogTitle || finalMeta.title });
     this.metaService.updateTag({ name: 'twitter:description', content: finalMeta.ogDescription || finalMeta.description });
-    
+
     if (finalMeta.ogImage) {
       this.metaService.updateTag({ name: 'twitter:image', content: finalMeta.ogImage });
     }

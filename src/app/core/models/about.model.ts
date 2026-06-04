@@ -18,11 +18,12 @@ export interface SkillChip {
   name: string;
   variant?: 'default' | 'accent' | 'wood';
   level?: number;
+  color?: string;
 }
 
-export interface ChipGroup {
-  label: string;
-  chips: SkillChip[];
+export interface TechItem {
+  name: string;
+  logoUrl: string;
 }
 
 export interface InfoItem {

@@ -21,12 +21,14 @@ describe('FolderTabsComponent', () => {
 
   it('should be created', () => {
     fixture.componentRef.setInput('tabs', mockTabs);
+    fixture.componentRef.setInput('activeTab', 'perfil');
     fixture.detectChanges();
     expect(component).toBeTruthy();
   });
 
   it('should render all tabs', () => {
     fixture.componentRef.setInput('tabs', mockTabs);
+    fixture.componentRef.setInput('activeTab', 'perfil');
     fixture.detectChanges();
 
     const buttons = fixture.nativeElement.querySelectorAll('button.folder-tab');

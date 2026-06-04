@@ -1,7 +1,8 @@
 import {
   ProfileData,
   FolderTab,
-  ChipGroup,
+  TechItem,
+  SkillChip,
   InfoItem,
   ProjectBlock,
   MetaChip,
@@ -25,31 +26,27 @@ export const FOLDER_TABS: FolderTab[] = [
   { id: 'actual', label: 'Colaboraciones', icon: 'rocket' },
 ];
 
-export const STACK_CHIP_GROUPS: ChipGroup[] = [
-  {
-    label: 'Stack Tecnológico',
-    chips: [
-      { name: 'JavaScript', variant: 'accent', level: 5 },
-      { name: 'TypeScript', variant: 'accent', level: 5 },
-      { name: 'Angular', variant: 'wood', level: 4 },
-      { name: 'React', variant: 'wood', level: 4 },
-      { name: 'Electron', variant: 'default', level: 3 },
-      { name: 'SQL', variant: 'default', level: 3 },
-      { name: 'Java', variant: 'default', level: 3 },
-      { name: 'Supabase', variant: 'default', level: 3 },
-    ],
-  },
-  {
-    label: 'Habilidades Técnicas',
-    chips: [
-      { name: 'Investigación', variant: 'default', level: 0 },
-      { name: 'Integración de IA', variant: 'default', level: 0 },
-      { name: 'Arquitectura', variant: 'default', level: 0 },
-      { name: 'Testing', variant: 'default', level: 0 },
-      { name: 'Optimización', variant: 'default', level: 0 },
-      { name: 'DevOps', variant: 'default', level: 0 },
-    ],
-  },
+export const STACK_INTRO =
+  'Me he centrado en el estudio de tecnologías modernas por cuenta propia, a través de cursos y proyectos reales. Cuento con bases en lenguajes como Java, C, C# y SQL gracias a la formación recibida en la universidad.';
+
+const DEVICON = 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons';
+
+export const STACK_TECH: TechItem[] = [
+  { name: 'JavaScript', logoUrl: `${DEVICON}/javascript/javascript-original.svg` },
+  { name: 'TypeScript', logoUrl: `${DEVICON}/typescript/typescript-original.svg` },
+  { name: 'Angular',    logoUrl: `${DEVICON}/angular/angular-original.svg` },
+  { name: 'React',      logoUrl: `${DEVICON}/react/react-original.svg` },
+  { name: 'Electron',   logoUrl: `${DEVICON}/electron/electron-original.svg` },
+  { name: 'Supabase',   logoUrl: `${DEVICON}/supabase/supabase-original.svg` },
+];
+
+export const STACK_SKILLS: SkillChip[] = [
+  { name: 'Investigación',    color: '#ffd6e0' },
+  { name: 'Integración de IA', color: '#c7f2ff' },
+  { name: 'Arquitectura',     color: '#d4f0c8' },
+  { name: 'Testing',          color: '#fff0c4' },
+  { name: 'Optimización',     color: '#e8d4f0' },
+  { name: 'DevOps',           color: '#ffd4c4' },
 ];
 
 export const PERFIL_SECTIONS = {

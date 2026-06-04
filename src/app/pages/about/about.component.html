@@ -12,26 +12,23 @@
   </section>
 
   <section class="folder-section section-bg-3" aria-label="Más sobre Jonathan">
-    <app-folder-tabs [tabs]="folderTabs()" [(activeTab)]="folderTab">
+    <app-folder-tabs [tabs]="folderTabs()" [activeTab]="folderTab()" (activeTabChange)="folderTab.set($event)">
       <div class="neumorphic-card folder-body section-bg-2 elevation-medium" id="folder-panel" role="tabpanel">
-        <!-- Perfil siempre renderizado (pre-cargado) -->
         <div class="folder-content" [class.hidden]="folderTab() !== 'perfil'">
           <app-perfil-panel />
         </div>
-
-        <!-- Otros tabs se renderizan solo cuando están activos -->
-        @if (folderTab() === 'stack') {
-          <app-stack-panel class="folder-content fade-in" />
-        }
-        @if (folderTab() === 'valores') {
-          <app-valores-panel class="folder-content fade-in" />
-        }
-        @if (folderTab() === 'freelance') {
-          <app-freelance-panel class="folder-content fade-in" />
-        }
-        @if (folderTab() === 'actual') {
-          <app-actual-panel class="folder-content fade-in" />
-        }
+        <div class="folder-content" [class.hidden]="folderTab() !== 'stack'">
+          <app-stack-panel />
+        </div>
+        <div class="folder-content" [class.hidden]="folderTab() !== 'valores'">
+          <app-valores-panel />
+        </div>
+        <div class="folder-content" [class.hidden]="folderTab() !== 'freelance'">
+          <app-freelance-panel />
+        </div>
+        <div class="folder-content" [class.hidden]="folderTab() !== 'actual'">
+          <app-actual-panel />
+        </div>
       </div>
     </app-folder-tabs>
   </section>

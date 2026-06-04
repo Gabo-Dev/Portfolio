@@ -3,7 +3,6 @@ import {
   ChangeDetectionStrategy,
   signal,
   computed,
-  model,
   inject,
   OnDestroy,
   OnInit,
@@ -45,12 +44,7 @@ export class AboutComponent implements OnInit, OnDestroy {
   private readonly renderer = inject(Renderer2);
   private readonly metaService = inject(MetaService);
 
-  readonly developerName = signal('Gabo');
-  readonly experienceYears = signal(3);
-  readonly folderTab = model<TabType>('perfil');
-  readonly dynamicTitle = computed(
-    () => `Sobre ${this.developerName()} - ${this.experienceYears()} Años de Experiencia`,
-  );
+  readonly folderTab = signal<TabType>('perfil');
 
   readonly profileData = computed<ProfileData>(() => PROFILE_DATA);
   readonly folderTabs = computed<FolderTab[]>(() => FOLDER_TABS);

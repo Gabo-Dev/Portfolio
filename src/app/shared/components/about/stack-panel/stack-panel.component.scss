@@ -1,7 +1,117 @@
 .folder-content {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 1.75rem;
+}
+
+.stack-intro {
+  font-size: 0.88rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  font-family: var(--font-family-body);
+  margin: 0;
+  padding: 0.75rem 1rem;
+  border-left: 3px solid var(--primary-accent);
+  background: var(--section-bg-2);
+  border-radius: 0 8px 8px 0;
+
+  @media (min-width: 768px) {
+    font-size: 0.92rem;
+  }
+}
+
+.stack-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.stack-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin: 0;
+  font-family: var(--font-family-body);
+}
+
+.tech-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+
+  @media (min-width: 480px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(6, 1fr);
+    gap: 1rem;
+  }
+}
+
+.tech-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 0.5rem;
+  border-radius: 12px;
+  background: var(--neumorphic-background);
+  box-shadow: var(--neumorphic-shadow-convex-sm);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--neumorphic-shadow-convex);
+  }
+}
+
+.tech-logo {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+
+  @media (min-width: 768px) {
+    width: 44px;
+    height: 44px;
+  }
+}
+
+.tech-name {
+  font-size: 0.6rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+  font-family: var(--font-family-body);
+  text-align: center;
+
+  @media (min-width: 768px) {
+    font-size: 0.68rem;
+  }
+}
+
+.skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.skill-chip {
+  padding: 0.3rem 0.85rem;
+  font-size: 0.75rem;
+  font-family: var(--font-family-body);
+  font-weight: 600;
+  color: rgba(0, 0, 0, 0.58);
+  border-radius: 999px;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  transition: transform 0.15s ease, filter 0.15s ease;
+
+  &:hover {
+    transform: scale(1.04);
+    filter: brightness(0.93);
+  }
 }
 
 .fade-in {

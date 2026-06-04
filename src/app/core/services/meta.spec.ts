@@ -31,7 +31,7 @@ describe('MetaService', () => {
     expect(metaService.updateTag).toHaveBeenCalledWith({
       name: 'description',
       content:
-        'Portfolio de Jonathan Orna, Frontend Developer especializado en Angular, React y TypeScript.',
+        'Portfolio de Jonathan Orna, Frontend Developer especializado en React y TypeScript.',
     });
   });
 
@@ -119,7 +119,7 @@ describe('MetaService', () => {
     expect(metaService.updateTag).toHaveBeenCalledWith({
       name: 'description',
       content:
-        'Portfolio de Jonathan Orna, Frontend Developer especializado en Angular, React y TypeScript.',
+        'Portfolio de Jonathan Orna, Frontend Developer especializado en React y TypeScript.',
     });
   });
 
